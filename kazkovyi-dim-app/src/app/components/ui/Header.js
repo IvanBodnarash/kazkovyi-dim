@@ -62,7 +62,7 @@ export default function Header() {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#inst-events"
+                    href="#events"
                   >
                     {" "}
                     Події{" "}
@@ -126,7 +126,7 @@ export default function Header() {
                 </div>
               </div>
 
-              <div className="block md:hidden">
+              <div className="block lg:hidden">
                 <button
                   onClick={handleopenMobileMenu}
                   className="cursor-pointer rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"

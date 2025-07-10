@@ -28,7 +28,10 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
               >
                 <IoClose style={{ fontSize: "22px" }} />
               </button>
-              <ul className="flex flex-col items-start mt-12 gap-6 text-lg">
+              <ul
+                onClick={() => handleopenMobileMenu(false)}
+                className="flex flex-col items-start mt-12 gap-6 text-lg"
+              >
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
@@ -36,6 +39,16 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                   >
                     {" "}
                     Головна{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="#events"
+                  >
+                    {" "}
+                    Події{" "}
                   </a>
                 </li>
 

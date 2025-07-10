@@ -14,7 +14,7 @@ export default function MainHero() {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 md:px-6 lg:px-8">
-      <div className="flex flex-col lg:flex-row mt-18 lg:mt-0 items-center">
+      <div className="flex flex-col md:flex-row mt-18 lg:mt-0 justify-center items-center">
         <div className="flex">
           <Image
             className="size-14 md:size-16 lg:size-34 rotate-8"
