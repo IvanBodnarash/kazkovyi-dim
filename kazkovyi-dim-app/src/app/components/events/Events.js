@@ -1,16 +1,33 @@
-"use client";
+// "use client";
 
 import EventCard from "../cards/EventCard";
-import { useState } from "react";
+// import { useState } from "react";
 import EventDetails from "../ui/EventDetails";
 import { motion, AnimatePresence } from "motion/react";
-import useDisableBodyScroll from "@/app/hooks/useDisableBodyScroll";
+// import useDisableBodyScroll from "@/app/hooks/useDisableBodyScroll";
+import { fetchEvents } from "@/app/utils/fetchEvents";
+import { client } from "@/sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
-export default function Events() {
-  const [showDetailsModal, setShowDetailsModal] = useState(false);
-  const [selectedData, setSelectedData] = useState({});
+export default async function Events() {
+  // const [showDetailsModal, setShowDetailsModal] = useState(false);
+  // const [selectedData, setSelectedData] = useState({});
+  // const [eventsData, setEventsData] = useState([]);
 
-  useDisableBodyScroll(showDetailsModal);
+  // const events = useLoadEvents();
+  // console.log(events);
+
+  // const { projectId, dataset } = client.config();
+  // const urlFor = (source) =>
+  //   projectId && dataset
+  //     ? imageUrlBuilder({ projectId, dataset }).image(source)
+  //     : null;
+
+  const events = await fetchEvents();
+
+  console.log(events);
+
+  // useDisableBodyScroll(showDetailsModal);
 
   const cardsData = [
     {
@@ -43,7 +60,7 @@ export default function Events() {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-xl px-4 pb-8 md:px-6 lg:px-8">
+      {/* <div className="mx-auto max-w-screen-xl px-4 pb-8 md:px-6 lg:px-8">
         <div className="mt-4 md:mt-18 lg:mt-14 items-center font-calibri">
           <h1 className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white">
             Наші події та новинки
@@ -76,7 +93,7 @@ export default function Events() {
             />
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 }

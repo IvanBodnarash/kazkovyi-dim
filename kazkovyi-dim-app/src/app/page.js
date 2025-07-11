@@ -1,6 +1,5 @@
-import Link from "next/link";
 import MainHero from "./components/hero/MainHero";
-import Events from "./components/events/Events";
+import EventsWrapper from "./components/events/EventsWrapper";
 
 export default function Home() {
   return (
@@ -15,7 +14,7 @@ export default function Home() {
         id="events"
         className="bg-[url('/backgrounds/inst.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
       >
-        <Events />
+        <EventsWrapper />
       </div>
     </>
   );

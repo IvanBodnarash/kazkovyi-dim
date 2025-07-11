@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
-export const postType = defineType({
-    name: 'post',
-    title: 'Post',
+export const postType2 = defineType({
+    name: 'post2',
+    title: 'Post2',
     type: 'document',
     fields: [
         defineField({

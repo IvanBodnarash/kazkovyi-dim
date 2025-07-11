@@ -52,20 +52,20 @@ export default function Header() {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="#events"
                   >
                     {" "}
-                    Про нас{" "}
+                    Події{" "}
                   </a>
                 </li>
 
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#events"
+                    href="#"
                   >
                     {" "}
-                    Події{" "}
+                    Про нас{" "}
                   </a>
                 </li>
 
