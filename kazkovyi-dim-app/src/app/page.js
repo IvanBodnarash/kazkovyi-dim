@@ -1,5 +1,6 @@
 import MainHero from "./components/hero/MainHero";
 import EventsWrapper from "./components/events/EventsWrapper";
+import AboutUs from "./components/aboutUs/AboutUs";
 
 export default function Home() {
   return (
@@ -15,6 +16,12 @@ export default function Home() {
         className="bg-[url('/backgrounds/inst.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
       >
         <EventsWrapper />
+      </div>
+      <div
+        id="aboutUs"
+        className="bg-[url('/backgrounds/about-us.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
+      >
+        <AboutUs />
       </div>
     </>
   );

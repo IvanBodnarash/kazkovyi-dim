@@ -1,28 +1,33 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
+import processDate from "@/app/utils/dateProcessor";
 
 export default function EventDetails({ data, onClose }) {
   const processedImg = processImage(data.img);
-  console.log(data);
+
   return (
     <div
-      className="fixed inset-0 z-50 bg-opacity-30 backdrop-blur-sm"
+      className="fixed inset-0 z-50 bg-opacity-30 backdrop-blur-sm m-auto"
       onClick={() => onClose()}
     >
-      <div className="flex justify-center items-center shadow-lg w-full m-auto p-6 h-full">
+      <div className="flex justify-center items-center shadow-lg p-6 h-full">
         <div className="bg-crema flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-50 p-6 shadow-xl transition-all">
-          <div className="bg-ochre p-2 rounded-xl">
+          <div className="bg-ochre p-2 rounded-xl relative">
+            <div className="absolute right-5 bottom-8 rounded-sm bg-cielo p-1">
+              {data.processedDate}
+            </div>
             <img
               className="rounded-xl h-70 min-w-70 lg:w-100 lg:h-100 object-cover"
               src={processedImg}
               alt="placeholder"
             />
           </div>
+
           <div className="w-full md:w-3/4">
-            <h1 className="text-slate-900 text-md md:text-lg lg:text-xl mb-2 font-bold">
+            <h1 className="text-ochre-500 text-md md:text-lg lg:text-xl mb-2 font-bold">
               {data.title}
             </h1>
-            <div className="text-amber-950 text-sm md:text-md lg:text-lg">
+            <div className="text-ochre-500 text-sm md:text-md lg:text-lg">
               <PortableText
                 value={data.description}
                 components={{

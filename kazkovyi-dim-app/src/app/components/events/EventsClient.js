@@ -15,7 +15,7 @@ export default function EventsClient({ events }) {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
-        <div className="mt-4 md:mt-18 lg:mt-14 items-center font-calibri">
+        <div className="mt-0 lg:mt-14 items-center font-calibri">
           <h1 className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white">
             Наші події та новинки
           </h1>
@@ -26,6 +26,7 @@ export default function EventsClient({ events }) {
                 title={event.title}
                 description={event.description}
                 img={event.image}
+                date={event.publishedAt}
                 setShowDetailsModal={setShowDetailsModal}
                 setSelectedData={setSelectedData}
               />
