@@ -35,7 +35,7 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     {" "}
                     Головна{" "}
@@ -55,10 +55,30 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="#aboutUs"
                   >
                     {" "}
                     Про нас{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="#chars"
+                  >
+                    {" "}
+                    Персонажі{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="#reviews"
+                  >
+                    {" "}
+                    Відгуки{" "}
                   </a>
                 </li>
 
@@ -69,26 +89,6 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                   >
                     {" "}
                     Пакети послуг{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    Контакти{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    Відгуки{" "}
                   </a>
                 </li>
 

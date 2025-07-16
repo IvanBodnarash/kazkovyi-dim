@@ -58,7 +58,7 @@ export default function MainHero() {
           <Image
             src={vedmedyk}
             alt="bear"
-            className="w-76 h-76 md:w-96 md:h-96 lg:w-[550px] lg:h-[550px] object-contain"
+            className="size-76 md:size-96 lg:size-[550px] object-contain"
           />
         </div>
       </div>

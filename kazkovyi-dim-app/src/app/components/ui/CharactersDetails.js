@@ -1,7 +1,7 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
 
-export default function EventDetails({ data, onClose }) {
+export default function CharactersDetails({ data, onClose }) {
   const processedImg = processImage(data.img);
 
   return (
@@ -10,11 +10,8 @@ export default function EventDetails({ data, onClose }) {
       onClick={() => onClose()}
     >
       <div className="flex justify-center items-center shadow-lg p-6 h-full">
-        <div className="bg-crema flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-50 p-6 shadow-xl transition-all">
+        <div className="bg-crema flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-50 xl:m-70 p-6 shadow-xl transition-all">
           <div className="bg-ochre p-2 rounded-xl relative">
-            <div className="absolute right-5 bottom-8 rounded-sm bg-cielo p-1">
-              {data.processedDate}
-            </div>
             <img
               className="rounded-xl h-70 min-w-70 lg:w-100 lg:h-100 object-cover"
               src={processedImg}
@@ -22,7 +19,7 @@ export default function EventDetails({ data, onClose }) {
             />
           </div>
 
-          <div className="w-full md:w-3/4">
+          <div className="w-full md:w-2/4">
             <h1 className="text-ochre-500 text-md md:text-lg lg:text-xl mb-2 font-bold">
               {data.title}
             </h1>

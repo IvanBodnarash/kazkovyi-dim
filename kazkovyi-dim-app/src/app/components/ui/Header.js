@@ -21,7 +21,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white fixed w-full shadow-lg z-10">
+    <header className="bg-white fixed w-full shadow-lg z-20">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
@@ -42,7 +42,7 @@ export default function Header() {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     {" "}
                     Головна{" "}
@@ -62,10 +62,30 @@ export default function Header() {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="#aboutUs"
                   >
                     {" "}
                     Про нас{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="#chars"
+                  >
+                    {" "}
+                    Персонажі{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="#reviews"
+                  >
+                    {" "}
+                    Відгуки{" "}
                   </a>
                 </li>
 
@@ -76,26 +96,6 @@ export default function Header() {
                   >
                     {" "}
                     Пакети послуг{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    Контакти{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    Відгуки{" "}
                   </a>
                 </li>
               </ul>
