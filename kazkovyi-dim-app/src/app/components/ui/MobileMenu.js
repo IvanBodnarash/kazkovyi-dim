@@ -85,7 +85,7 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="#services"
                   >
                     {" "}
                     Пакети послуг{" "}

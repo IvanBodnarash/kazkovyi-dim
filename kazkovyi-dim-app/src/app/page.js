@@ -3,6 +3,7 @@ import EventsWrapper from "./components/events/EventsWrapper";
 import AboutUs from "./components/aboutUs/AboutUs";
 import CharactersWrapper from "./components/characters/CharactersWrapper";
 import ReviewsWrapper from "./components/reviews/ReviewsWrapper";
+import ServicesWrapper from "./components/services/ServicesWrapper";
 
 export default function Home() {
   return (
@@ -36,6 +37,12 @@ export default function Home() {
         className="bg-[url('/backgrounds/reviews.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
       >
         <ReviewsWrapper />
+      </div>
+      <div
+        id="services"
+        className="bg-slate-400 bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
+      >
+        <ServicesWrapper />
       </div>
     </>
   );

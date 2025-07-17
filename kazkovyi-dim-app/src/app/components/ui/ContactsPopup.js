@@ -20,7 +20,7 @@ export default function ContactsPopup({ isPopupOpened, setIsPopupOpened }) {
         >
           <a
             className="p-4 hover:bg-slate-100 flex flex-row items-center gap-6"
-            href="#"
+            href="https://ig.me/m/kazkovyidim.cv"
             target="_blank"
             onClick={() => setIsPopupOpened(false)}
           >
@@ -30,7 +30,7 @@ export default function ContactsPopup({ isPopupOpened, setIsPopupOpened }) {
           <hr className="text-gray-300" />
           <a
             className="p-4 hover:bg-slate-100 flex flex-row items-center gap-6"
-            href="#"
+            href="https://t.me/sbdnr"
             target="_blank"
           >
             <Image
