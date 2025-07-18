@@ -17,12 +17,12 @@ export default function ContactsPopup({ isPopupOpened, setIsPopupOpened }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           className="absolute flex justify-center flex-col overflow-hidden top-22 rounded-2xl sm:w-65 bg-white text-gray-500 shadow-2xl"
+          onClick={() => setIsPopupOpened(false)}
         >
           <a
             className="p-4 hover:bg-slate-100 flex flex-row items-center gap-6"
             href="https://ig.me/m/kazkovyidim.cv"
             target="_blank"
-            onClick={() => setIsPopupOpened(false)}
           >
             <Image src={instLogo} width={30} height={30} alt="inst-logo" />
             <p>Instagram</p>
@@ -44,7 +44,7 @@ export default function ContactsPopup({ isPopupOpened, setIsPopupOpened }) {
           <hr className="text-gray-300" />
           <a
             className="p-4 hover:bg-slate-100 flex flex-row items-center gap-6"
-            href="#"
+            href="viber://chat?number=+380955822876"
             target="_blank"
           >
             <Image src={viberLogo} width={30} height={30} alt="viber-logo" />
@@ -53,7 +53,7 @@ export default function ContactsPopup({ isPopupOpened, setIsPopupOpened }) {
           <hr className="text-gray-300" />
           <a
             className="p-4 hover:bg-slate-100 flex flex-row items-center gap-6"
-            href="#"
+            href="https://api.whatsapp.com/send?phone=380955822876"
             target="_blank"
           >
             <Image

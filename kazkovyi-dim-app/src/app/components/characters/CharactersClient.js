@@ -36,7 +36,10 @@ export default function CharactersClient({ chars }) {
     <>
       <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
         <div className="mt-0 lg:mt-14 items-center font-calibri relative">
-          <h1 className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white">
+          <h1
+            data-aos="fade-up"
+            className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white"
+          >
             Наші персонажі
           </h1>
           <IoIosArrowDropleft
@@ -56,6 +59,8 @@ export default function CharactersClient({ chars }) {
                 <>
                   {visibleCharacters.map((item, index) => (
                     <CharCard
+                      data-aos="fade-up"
+                      data-aos-delay={index * 100}
                       key={index}
                       title={item.title}
                       description={item.description}

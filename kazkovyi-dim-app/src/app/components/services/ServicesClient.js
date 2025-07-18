@@ -16,12 +16,17 @@ export default function ServicesClient({ services }) {
     <>
       <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
         <div className="mt-0 lg:mt-14 items-center font-calibri">
-          <h1 className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white">
+          <h1
+            data-aos="fade-zoom-in"
+            className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white"
+          >
             Пакети Послуг
           </h1>
           <div className="flex flex-wrap justify-center mt-8 gap-8">
             {services.map((service, index) => (
               <ServiceCard
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
                 key={index}
                 title={service.title}
                 img={service.image}

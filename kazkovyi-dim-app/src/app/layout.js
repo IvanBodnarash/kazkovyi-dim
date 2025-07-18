@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/ui/Header";
 import { useState } from "react";
 import ConnectWithUsContext from "./context/ConnectWithUsContext";
+import Footer from "./components/footer/Footer";
 
 // export const metadata = {
 //   title: "Kazkovyi Dim",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <ConnectWithUsContext value={[isPopupOpened, setIsPopupOpened]}>
           <Header />
           <div onClick={() => setIsPopupOpened(false)}>{children}</div>
+          <Footer />
         </ConnectWithUsContext>
       </body>
     </html>
