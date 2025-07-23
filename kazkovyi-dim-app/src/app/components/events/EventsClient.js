@@ -5,14 +5,12 @@ import { useState } from "react";
 import EventDetails from "../ui/EventDetails";
 import { motion, AnimatePresence } from "motion/react";
 import useDisableBodyScroll from "@/app/hooks/useDisableBodyScroll";
-import useAos from "@/app/hooks/useAos";
 
 export default function EventsClient({ events }) {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [selectedData, setSelectedData] = useState();
 
-  // useDisableBodyScroll(showDetailsModal);
-  useAos();
+  useDisableBodyScroll(showDetailsModal);
 
   return (
     <>

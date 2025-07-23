@@ -25,7 +25,7 @@ export default function Header() {
   return (
     <header
       id="header"
-      className="bg-white fixed w-full shadow-lg z-20 transition-all"
+      className="bg-white fixed w-screen shadow-lg z-20 transition-all"
     >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">

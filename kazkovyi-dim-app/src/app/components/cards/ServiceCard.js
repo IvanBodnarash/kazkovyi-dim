@@ -1,4 +1,5 @@
 import processImage from "@/app/utils/imageProcessor";
+import Image from "next/image";
 
 export default function ServiceCard({
   title,
@@ -12,12 +13,10 @@ export default function ServiceCard({
 }) {
   const processedImg = processImage(img);
 
-  console.log(servicesList);
-
   return (
     <div {...props}>
       <div
-        className="bg-crema rounded-2xl w-100 p-6 shadow-xl cursor-pointer hover:scale-105 transition-all"
+        className="bg-crema rounded-2xl w-full md:w-100 p-6 shadow-xl cursor-pointer hover:scale-105 transition-all"
         onClick={() => {
           setSelectedData({
             title,
@@ -28,17 +27,19 @@ export default function ServiceCard({
           setShowDetailsModal(true);
         }}
       >
-        <h1 className="mb-4 text-2xl font-black text-center text-ochre-500">
+        <h1 className="mb-4 text-xl md:text-2xl font-black text-center text-ochre-500">
           {title}
         </h1>
         <div className="bg-ochre p-3 rounded-xl relative">
-          <img
-            className="rounded-xl h-80 w-96 object-cover"
+          <Image
+            className="rounded-xl h-70 md:h-80 w-96 object-cover"
             src={processedImg}
-            alt="placeholder"
+            width={800}
+            height={400}
+            alt="service-card-img"
           />
         </div>
-        <div className="mt-4 text-xl">
+        <div className="mt-4 text-lg md:text-xl">
           <p className="text-ochre-500">Тривалість: {duration}</p>
           <p className="text-ochre-500">Вартість: {price}</p>
         </div>

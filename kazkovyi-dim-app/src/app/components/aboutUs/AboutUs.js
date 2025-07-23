@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { fetchAbouUs } from "@/app/utils/fetchAboutUs";
 import processImage from "@/app/utils/imageProcessor";
 import { PortableText } from "next-sanity";
@@ -6,9 +8,8 @@ export default async function AboutUs() {
   const aboutUsData = await fetchAbouUs();
   const processedImg = processImage(aboutUsData[0].image);
 
-  console.log(aboutUsData[0].description);
   return (
-    <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
+    <div className="mx-auto max-w-screen-xl px-8 pb-8 lg:pb-0 md:px-6 lg:px-8">
       <div className="mt-0 lg:mt-14 items-center font-calibri">
         <h1
           data-aos="fade-up"
@@ -21,8 +22,11 @@ export default async function AboutUs() {
           data-aos-delay={100}
           className="flex flex-col md:flex-row justify-center items-center md:items-start mt-8 gap-10"
         >
-          <img
+          <Image
             src={processedImg}
+            width={800}
+            height={400}
+            alt="aboutUs"
             className="h-60 md:h-120 w-full md:max-w-100 rounded-3xl shadow-xl/20 hover:scale-105 object-cover cursor-pointer transition-all"
           />
           <div

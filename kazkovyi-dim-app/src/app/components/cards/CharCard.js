@@ -1,4 +1,5 @@
 import processImage from "@/app/utils/imageProcessor";
+import Image from "next/image";
 
 export default function CharCard({
   title,
@@ -24,10 +25,12 @@ export default function CharCard({
         }}
       >
         <div className="bg-ochre p-3 rounded-xl relative">
-          <img
-            className="rounded-xl size-48 object-cover"
+          <Image
             src={processedImg}
+            width={800}
+            height={400}
             alt="placeholder"
+            className="rounded-xl size-48 object-cover"
           />
         </div>
         <h1 className="mt-2 text-xl text-center font-black text-ochre-500 truncate">

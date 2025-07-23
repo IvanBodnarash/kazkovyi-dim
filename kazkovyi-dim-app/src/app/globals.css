@@ -15,8 +15,11 @@
   --font-calibri: "Calibri";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .hero-text-heading {
   font-family: "Miss-Katherine";
-  /* font-size: 176px; */
   color: #9f9078;
 }

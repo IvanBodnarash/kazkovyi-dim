@@ -42,10 +42,12 @@ export default function CharactersClient({ chars }) {
           >
             Наші персонажі
           </h1>
-          <IoIosArrowDropleft
-            className={`${screenSize === "desktop" ? "block" : "hidden"} absolute top-80 text-white text-5xl cursor-pointer`}
-            onClick={prevPortion}
-          />
+          {screenSize === "desktop" && (
+            <IoIosArrowDropleft
+              className="absolute top-80 text-white text-5xl cursor-pointer"
+              onClick={prevPortion}
+            />
+          )}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentPortion}
@@ -86,10 +88,12 @@ export default function CharactersClient({ chars }) {
               )}
             </motion.div>
           </AnimatePresence>
-          <IoIosArrowDropright
-            className={`${screenSize === "desktop" ? "block" : "hidden"} absolute right-0 top-80 text-white text-5xl cursor-pointer`}
-            onClick={nextPortion}
-          />
+          {screenSize === "desktop" && (
+            <IoIosArrowDropright
+              className="absolute right-0 top-80 text-white text-5xl cursor-pointer"
+              onClick={nextPortion}
+            />
+          )}
         </div>
       </div>
       <AnimatePresence>

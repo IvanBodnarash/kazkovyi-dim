@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import bird from "../../../../public/stickers/bird.png";
 import vedmedyk from "../../../../public/stickers/bear.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import ConnectWithUsContext from "@/app/context/ConnectWithUsContext";
 import ContactsPopupHero from "../ui/ContactsPopupHero";
 import useAos from "@/app/hooks/useAos";
@@ -11,6 +11,19 @@ import useAos from "@/app/hooks/useAos";
 export default function MainHero() {
   const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
+
+  const popupRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100 && isPopupHeroOpened) {
+        setIsPopupHeroOpened(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isPopupHeroOpened]);
 
   useAos();
 
@@ -65,7 +78,7 @@ export default function MainHero() {
                   setIsPopupHeroOpened((prevState) => !prevState);
                 }}
               >
-                Зв'язатися з нами
+                Зв&apos;язатися з нами
               </button>
             </div>
           </div>
