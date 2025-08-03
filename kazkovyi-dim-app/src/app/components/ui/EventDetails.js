@@ -1,5 +1,7 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
+import Image from "next/image";
+import { IoClose } from "react-icons/io5";
 
 export default function EventDetails({ data, onClose }) {
   const processedImg = processImage(data.img);
@@ -9,23 +11,29 @@ export default function EventDetails({ data, onClose }) {
       className="fixed inset-0 z-50 bg-opacity-30 backdrop-blur-sm m-auto"
       onClick={() => onClose()}
     >
-      <div className="flex justify-center items-center shadow-lg p-6 h-full">
-        <div className="bg-crema flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-50 p-6 shadow-xl transition-all">
+      <div className="flex justify-center items-center p-6">
+        <div className="bg-crema flex flex-col justify-center items-start md:flex-row gap-2 my-8 sm:my-0 h-160 sm:h-full md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-30 p-6 transition-all">
           <div className="bg-ochre p-2 rounded-xl relative">
             <div className="absolute right-5 bottom-8 rounded-sm bg-cielo p-1">
               {data.processedDate}
             </div>
-            <img
-              className="rounded-xl h-70 min-w-70 lg:w-100 lg:h-100 object-cover"
+            <Image
+              className="rounded-xl h-60 min-w-70 lg:w-100 lg:h-100 object-cover"
               src={processedImg}
-              alt="placeholder"
+              width={200}
+              height={200}
+              alt="eventsImg"
             />
           </div>
 
-          <div className="w-full md:w-3/4">
-            <h1 className="text-ochre-500 text-md md:text-lg lg:text-xl mb-2 font-bold">
+          <div className="w-full md:w-3/4 overflow-y-auto md:overflow-hidden">
+            {/* <h1 className="text-ochre-500 text-md md:text-lg lg:text-xl mb-2 font-bold">
               {data.title}
-            </h1>
+            </h1> */}
+            <div className="flex flex-row justify-between items-center text-ochre-500 font-bold">
+              <h1 className="mb-2 text-xl lg:text-2xl">{data.title}</h1>
+              <IoClose size={24} className="cursor-pointer" />
+            </div>
             <div className="text-ochre-500 text-sm md:text-md lg:text-lg">
               <PortableText
                 value={data.description}

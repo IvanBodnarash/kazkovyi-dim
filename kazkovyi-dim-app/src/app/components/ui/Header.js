@@ -29,15 +29,13 @@ export default function Header() {
     >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="#">
+          <div
+            className="flex-1 md:flex md:items-center md:gap-12"
+            data-aos="fade-zoom-in"
+          >
+            <a className="block text-teal-600" href="/">
               <span className="sr-only">Головна</span>
-              <Image
-                src="/logo.png"
-                width={100}
-                height={100}
-                alt="Picture of the author"
-              />
+              <Image src="/logo.png" width={100} height={100} alt="Logo" />
             </a>
           </div>
 
@@ -66,7 +64,7 @@ export default function Header() {
                   type="button"
                   onClick={() => setIsPopupOpened((prevState) => !prevState)}
                 >
-                  Зв'язатися з нами
+                  Зв&apos;язатися з нами
                 </button>
 
                 <ContactsPopup

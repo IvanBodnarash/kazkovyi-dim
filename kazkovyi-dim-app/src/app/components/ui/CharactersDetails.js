@@ -1,5 +1,6 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
+import Image from "next/image";
 
 export default function CharactersDetails({ data, onClose }) {
   const processedImg = processImage(data.img);
@@ -12,10 +13,12 @@ export default function CharactersDetails({ data, onClose }) {
       <div className="flex justify-center items-center shadow-lg p-6 h-full">
         <div className="bg-crema flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-50 xl:m-70 p-6 shadow-xl transition-all">
           <div className="bg-ochre p-2 rounded-xl relative">
-            <img
-              className="rounded-xl h-70 min-w-70 lg:w-100 lg:h-100 object-cover"
+            <Image
               src={processedImg}
-              alt="placeholder"
+              width={800}
+              height={400}
+              className="rounded-xl h-70 min-w-70 lg:w-100 lg:h-100 object-cover"
+              alt="chars-details"
             />
           </div>
 

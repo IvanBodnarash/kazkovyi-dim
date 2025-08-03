@@ -32,7 +32,7 @@ export default function ServiceCard({
         </h1>
         <div className="bg-ochre p-3 rounded-xl relative">
           <Image
-            className="rounded-xl h-70 md:h-80 w-96 object-cover"
+            className="rounded-xl h-70 object-cover"
             src={processedImg}
             width={800}
             height={400}

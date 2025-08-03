@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <JsonLd />
-      
+
       <div className="w-full">
         <div
           id="home"
@@ -37,7 +37,7 @@ export default function Home() {
 
         <div
           id="events"
-          className="bg-[url('/backgrounds/inst.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
+          className="bg-[#9eb3c2] lg:bg-[url('/backgrounds/inst.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
         >
           <EventsWrapper />
         </div>
@@ -55,7 +55,7 @@ export default function Home() {
 
         <div
           id="chars"
-          className="bg-[url('/backgrounds/chars.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
+          className="bg-[#9eb3c2] lg:bg-[url('/backgrounds/chars.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
         >
           <CharactersWrapper />
         </div>

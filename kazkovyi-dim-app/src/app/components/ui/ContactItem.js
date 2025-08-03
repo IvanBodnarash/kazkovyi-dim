@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ContactItem({ title, href, imageUrl, newTab }) {
   return (
     <a
@@ -5,7 +7,7 @@ export default function ContactItem({ title, href, imageUrl, newTab }) {
       href={href}
       target={newTab ? "_blank" : "_self"}
     >
-      <img src={imageUrl} width={30} height={30} alt={title} />
+      <Image src={imageUrl} width={30} height={30} alt={title} />
       <p>{title}</p>
     </a>
   );

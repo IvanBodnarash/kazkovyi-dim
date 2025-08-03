@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
+import Link from "next/link";
 import { IoClose } from "react-icons/io5";
 
 export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
@@ -33,13 +34,13 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                 className="flex flex-col items-start mt-12 gap-6 text-lg"
               >
                 <li>
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
                     {" "}
                     Головна{" "}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>

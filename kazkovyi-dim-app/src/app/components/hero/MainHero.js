@@ -88,6 +88,8 @@ export default function MainHero() {
           <Image
             data-aos="fade-left"
             data-aos-delay={600}
+            width={800}
+            height={400}
             src={vedmedyk}
             alt="bear"
             className="size-76 md:size-96 lg:size-[550px] object-contain"

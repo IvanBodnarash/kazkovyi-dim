@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import ReviewBubble from "../ui/ReviewBubble";
+import Image from "next/image";
 
 export default function ReviewsClient({ reviews }) {
   const [currentPortion, setCurrentPortion] = useState(0);
@@ -36,7 +37,7 @@ export default function ReviewsClient({ reviews }) {
             data-aos="fade-zoom-in"
             className="flex flex-col lg:flex-row mt-6 lg:mt-0 justify-center items-center gap-8"
           >
-            <div className="bg-slate-500/60 p-3 rounded-4xl relative flex justify-center overflow-hidden w-full lg:w-180">
+            <div className="bg-slate-500/60 p-3 rounded-4xl relative flex justify-center overflow-hidden h-140 lg:h-full w-full lg:w-180">
               <div className="absolute inset-0 bg-[url('/backgrounds/reviews-inner.png')] bg-cover opacity-40 z-0 m-3 rounded-4xl"></div>
               <div className="relative z-10 flex items-center gap-1 lg:gap-8 max-h-full lg:h-100 my-4 px-2 lg:px-0">
                 <IoIosArrowDropleft
@@ -69,9 +70,11 @@ export default function ReviewsClient({ reviews }) {
               </div>
             </div>
             <div>
-              <img
-                data-aos="fade-left"
+              <Image
+                data-aos="fade-up"
                 src="/stickers/bunny.png"
+                width={800}
+                height={400}
                 alt="bunny"
                 className="size-76 md:size-96 lg:size-[500px] xl:size-[530px] object-contain"
               />
