@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://kazkovyidim.vercel.app",
+  siteUrl: "https://kazkovyi-dim.vercel.app/",
   generateRobotsTxt: true,
 };

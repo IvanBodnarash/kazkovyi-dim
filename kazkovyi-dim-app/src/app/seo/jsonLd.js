@@ -5,8 +5,8 @@ export default function JsonLd() {
     name: "Казковий Дім",
     description:
       "Організація дитячих свят, аніматори та шоу-програми в Чернівцях",
-    url: "https://kazkovyidim.vercel.app",
-    image: "https://kazkovyidim.vercel.app/og-image.jpg",
+    url: "https://kazkovyi-dim.vercel.app/",
+    image: "https://kazkovyi-dim.vercel.app/og-image.jpg",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Чернівці",

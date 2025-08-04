@@ -8,11 +8,11 @@ export const metadataData = {
     title: "Казковий Дім — Дитячі Свята в Чернівцях",
     description:
       "Свята, які запам’ятаються дітям і батькам. Веселі герої, ігри, шоу та магія!",
-    url: "https://kazkovyidim.vercel.app",
+    url: "https://kazkovyi-dim.vercel.app/",
     siteName: "Казковий Дім",
     images: [
       {
-        url: "https://kazkovyidim.vercel.app/og-image.jpg",
+        url: "https://kazkovyi-dim.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Дитяче свято з аніматорами",
@@ -26,6 +26,6 @@ export const metadataData = {
     follow: true,
   },
   alternates: {
-    canonical: "https://kazkovyidim.vercel.app",
+    canonical: "https://kazkovyi-dim.vercel.app/",
   },
 };
