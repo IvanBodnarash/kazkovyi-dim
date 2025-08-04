@@ -77,7 +77,8 @@ export default function Header() {
                     data-aos="fade-zoom-in"
                     data-aos-delay={menuItems.length * 200}
                     className="rounded-md bg-gray-200 px-5 py-2.5 text-md font-medium text-[#666666]"
-                    href="#"
+                    href="https://kazkovyi-dim.sanity.studio/structure"
+                    target="_blank"
                   >
                     Керування
                   </a>
