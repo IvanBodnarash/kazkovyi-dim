@@ -10,6 +10,7 @@ export default function LoadingComponent({ fadeOut }) {
         width={200}
         height={200}
         alt="Logo"
+        priority
       />
     </div>
   );

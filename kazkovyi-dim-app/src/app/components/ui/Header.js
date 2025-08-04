@@ -36,7 +36,13 @@ export default function Header() {
           >
             <Link className="block text-teal-600" href="/">
               <span className="sr-only">Головна</span>
-              <Image src="/logo.png" width={100} height={100} alt="Logo" />
+              <Image
+                src="/logo.png"
+                width={100}
+                height={100}
+                alt="Logo"
+                priority
+              />
             </Link>
           </div>
 

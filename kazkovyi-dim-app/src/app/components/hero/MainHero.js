@@ -92,6 +92,7 @@ export default function MainHero() {
             height={400}
             src={vedmedyk}
             alt="bear"
+            priority
             className="size-76 md:size-96 lg:size-[550px] object-contain"
           />
         </div>
