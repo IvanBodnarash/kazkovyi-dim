@@ -2,6 +2,7 @@
 
 import { useContext, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { menuItems } from "@/app/data/menuItems";
 
@@ -33,10 +34,10 @@ export default function Header() {
             className="flex-1 md:flex md:items-center md:gap-12"
             data-aos="fade-zoom-in"
           >
-            <a className="block text-teal-600" href="/">
+            <Link className="block text-teal-600" href="/">
               <span className="sr-only">Головна</span>
               <Image src="/logo.png" width={100} height={100} alt="Logo" />
-            </a>
+            </Link>
           </div>
 
           <div className="md:flex md:items-center md:gap-12 transition-all">
