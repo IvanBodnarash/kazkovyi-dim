@@ -23,7 +23,11 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html lang="uk" suppressHydrationWarning={true}>
+    <html
+      lang="uk"
+      style={{ overflowX: "hidden" }}
+      suppressHydrationWarning={true}
+    >
       <body>
         {isLoading ? (
           <LoadingComponent fadeOut={fadeOut} />
