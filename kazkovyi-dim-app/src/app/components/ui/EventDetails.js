@@ -16,7 +16,7 @@ export default function EventDetails({ data, onClose }) {
         className="cursor-pointer absolute text-ochre-500 right-6 top-6 block md:hidden"
       />
       <div className="flex justify-center items-center p-6">
-        <div className="bg-crema flex flex-col justify-center items-start md:flex-row gap-2 my-8 sm:my-0 h-160 sm:h-full md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-30 p-6 transition-all">
+        <div className="bg-crema border border-ochre/70 flex flex-col justify-center items-start md:flex-row gap-2 my-8 sm:my-0 h-160 sm:h-full md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-30 p-6 transition-all">
           <div className="bg-ochre p-2 rounded-xl relative">
             <div className="absolute right-5 bottom-8 rounded-sm bg-cielo p-1">
               {data.processedDate}

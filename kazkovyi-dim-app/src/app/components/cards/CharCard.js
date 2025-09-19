@@ -14,7 +14,7 @@ export default function CharCard({
   return (
     <div {...props}>
       <div
-        className="bg-crema rounded-2xl max-w-58 p-4 shadow-xl cursor-pointer hover:scale-105 transition-all"
+        className="bg-crema border border-ochre/70 rounded-2xl max-w-58 p-4 shadow-xl cursor-pointer hover:scale-105 transition-all"
         onClick={() => {
           setSelectedData({
             title,

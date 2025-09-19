@@ -20,7 +20,7 @@ export default function ServicesDetails({ data, onClose }) {
           exit={{ opacity: 0, y: 20 }}
           transition={{ delay: 0.5, duration: 0.4 }}
         >
-          <div className="bg-crema flex flex-col gap-2 lg:gap-6 rounded-2xl m-2 md:m-10 lg:m-15 xl:m-50 p-3 lg:p-6 shadow-xl transition-all">
+          <div className="bg-crema border border-ochre/70 flex flex-col gap-2 lg:gap-6 rounded-2xl m-2 md:m-10 lg:m-15 xl:m-50 p-3 lg:p-6 shadow-xl transition-all">
             <div className="flex flex-row justify-between items-center text-ochre-500 text-xl lg:text-2xl font-bold">
               <h1 className="text-center">
                 {data.title}

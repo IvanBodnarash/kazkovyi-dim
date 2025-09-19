@@ -13,7 +13,7 @@ export default function CharactersDetails({ data, onClose }) {
     >
       <IoClose size={28} className="cursor-pointer absolute text-ochre-500 right-6 top-6 block md:hidden" />
       <div className="flex justify-center items-center shadow-lg p-6 h-full">
-        <div className="bg-crema flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-50 xl:m-70 p-6 shadow-xl transition-all">
+        <div className="bg-crema border border-ochre/70 flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-50 xl:m-70 p-6 shadow-xl transition-all">
           <div className="bg-ochre p-2 rounded-xl relative">
             <Image
               src={processedImg}
