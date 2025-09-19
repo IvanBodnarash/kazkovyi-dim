@@ -19,7 +19,7 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
             animate={{ x: "0%" }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg p-6"
+            className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white border border-l-ochre/50 shadow-lg p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <nav aria-label="Global">

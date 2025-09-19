@@ -12,8 +12,6 @@ export default function MainHero() {
   const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
 
-  const popupRef = useRef(null);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100 && isPopupHeroOpened) {

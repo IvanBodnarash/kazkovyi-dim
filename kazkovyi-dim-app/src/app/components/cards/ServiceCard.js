@@ -16,7 +16,7 @@ export default function ServiceCard({
   return (
     <div {...props}>
       <div
-        className="bg-crema border border-ochre/70 rounded-2xl w-full md:w-100 p-6 shadow-xl cursor-pointer hover:scale-105 transition-all"
+        className="bg-crema border border-ochre/70 rounded-2xl w-5/6 md:w-96 h-full m-auto p-4 md:p-6 shadow-xl cursor-pointer hover:scale-105 transition-all"
         onClick={() => {
           setSelectedData({
             title,
