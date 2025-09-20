@@ -1,6 +1,6 @@
 # Kazkoviy Dim
 
-<p align="center"> <img src="./public/og-image.jpg" alt="Project Screenshot" width="600"/> </p>
+<p align="center"> <img src="https://github.com/IvanBodnarash/kazkovyi-dim/blob/main/kazkovyi-dim-app/public/og-image.jpg?raw=true" alt="Project Screenshot" width="600"/> </p>
 
 ## Table of contents
 
