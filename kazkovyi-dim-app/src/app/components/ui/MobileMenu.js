@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { IoClose } from "react-icons/io5";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
   return (
@@ -101,6 +102,10 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
                     {" "}
                     Керування{" "}
                   </a>
+                </li>
+
+                <li>
+                  <LanguageSwitcher />
                 </li>
               </ul>
             </nav>

@@ -4,6 +4,8 @@ import { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useTranslation } from "react-i18next";
+
 import { menuItems } from "@/app/data/menuItems";
 
 import ConnectWithUsContext from "@/app/context/ConnectWithUsContext";
@@ -11,8 +13,11 @@ import ContactsPopup from "./ContactsPopup";
 import MobileMenu from "./MobileMenu";
 import NavItem from "./NavItem";
 import useAos from "@/app/hooks/useAos";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const { t } = useTranslation();
+
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
 
@@ -20,29 +25,16 @@ export default function Header() {
 
   function handleopenMobileMenu() {
     setMobileMenuOpened((prevState) => !prevState);
-    console.log(mobileMenuOpened);
   }
 
   return (
-    <header
-      id="header"
-      className="bg-white fixed w-screen shadow-lg z-20 transition-colors"
-    >
+    <header id="header" className="bg-white fixed w-screen shadow-lg z-20 transition-colors">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <div
-            className="flex-1 md:flex md:items-center md:gap-12"
-            data-aos="fade-zoom-in"
-          >
+          <div className="flex-1 md:flex md:items-center md:gap-12" data-aos="fade-zoom-in">
             <Link className="block text-teal-600" href="/">
-              <span className="sr-only">Головна</span>
-              <Image
-                src="/logo.png"
-                width={100}
-                height={100}
-                alt="Logo"
-                priority
-              />
+              <span className="sr-only">{t("header.home")}</span>
+              <Image src="/logo.png" width={100} height={100} alt="Logo" priority />
             </Link>
           </div>
 
@@ -50,15 +42,13 @@ export default function Header() {
             <nav aria-label="Global" className="hidden lg:block">
               <ul className="flex items-center gap-6 text-md">
                 {menuItems.map((item, index) => (
-                  <NavItem
-                    key={item.label}
-                    href={item.href}
-                    data-aos="fade-zoom-in"
-                    data-aos-delay={index * 100}
-                  >
-                    {item.label}
+                  <NavItem key={item.label} href={item.href} data-aos="fade-zoom-in" data-aos-delay={index * 100}>
+                    {t(item.label)}
                   </NavItem>
                 ))}
+                <li>
+                  <LanguageSwitcher />
+                </li>
               </ul>
             </nav>
 
@@ -71,13 +61,10 @@ export default function Header() {
                   type="button"
                   onClick={() => setIsPopupOpened((prevState) => !prevState)}
                 >
-                  Зв&apos;язатися з нами
+                  {t("header.connectButton")}
                 </button>
 
-                <ContactsPopup
-                  isPopupOpened={isPopupOpened}
-                  setIsPopupOpened={setIsPopupOpened}
-                />
+                <ContactsPopup isPopupOpened={isPopupOpened} setIsPopupOpened={setIsPopupOpened} />
 
                 <div className="hidden sm:flex">
                   <a
@@ -87,7 +74,7 @@ export default function Header() {
                     href="https://kazkovyi-dim.sanity.studio/structure"
                     target="_blank"
                   >
-                    Керування
+                    {t("header.adminButton")}
                   </a>
                 </div>
               </div>
@@ -105,19 +92,12 @@ export default function Header() {
                     stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 </button>
               </div>
 
-              <MobileMenu
-                mobileMenuOpened={mobileMenuOpened}
-                handleopenMobileMenu={handleopenMobileMenu}
-              />
+              <MobileMenu mobileMenuOpened={mobileMenuOpened} handleopenMobileMenu={handleopenMobileMenu} />
             </div>
           </div>
         </div>

@@ -7,12 +7,15 @@ import { useContext, useEffect, useRef, useState } from "react";
 import ConnectWithUsContext from "@/app/context/ConnectWithUsContext";
 import ContactsPopupHero from "../ui/ContactsPopupHero";
 import useAos from "@/app/hooks/useAos";
+import { useTranslation } from "react-i18next";
 
 export default function MainHero() {
   // const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
 
   const popupRef = useRef(null);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,22 +52,21 @@ export default function MainHero() {
               data-aos-delay={100}
               className="hero-text-heading text-7xl sm:text-8xl md:text-[120px] lg:text-[176px] -mb-1.25 md:-mb-2.5 lg:-mb-3.75 xl:-mb-8.75"
             >
-              КазковийДім
+              {t('main_hero.title')}
             </h1>
             <h2
               data-aos="fade-zoom-in"
               data-aos-delay={200}
               className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl/tight font-calibri font-bold text-shadow-2xs text-ochre pr-5"
             >
-              Організація та проведення дитячих свят в Чернівцях
+              {t("main_hero.heading")}
             </h2>
             <p
               data-aos="fade-zoom-in"
               data-aos-delay={300}
               className="text-md md:text-lg lg:text-xl xl:text-2xl text-tender font-calibri font-normal text-shadow-xs mt-2 md:mt-6 pr-8"
             >
-              Аніматори, випускні, новорічні свята, дні народження, квести, майстер класи, шоу мильних бульбашок,
-              паперове шоу та привітання ведмедика
+              {t("main_hero.paragraph")}
             </p>
 
             <div ref={popupRef} className="relative w-fit">
@@ -80,7 +82,7 @@ export default function MainHero() {
                   setIsPopupHeroOpened((prevState) => !prevState);
                 }}
               >
-                Зв&apos;язатися з нами
+                {t("main_hero.connectButton")}
               </button>
             </div>
           </div>

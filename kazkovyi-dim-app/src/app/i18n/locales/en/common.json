@@ -1,0 +1,19 @@
+{
+  "header": {
+    "home": "Home",
+    "events": "Programs",
+    "characters": "Characters",
+    "services": "Services",
+    "about": "About us",
+    "reviews": "Reviews",
+    "connectButton": "Contact us",
+    "adminButton": "Admin"
+  },
+
+  "main_hero": {
+    "title": "CasaDeCuentos",
+    "heading": "Organization and hosting of children's parties in Costa Brava",
+    "paragraph": "Entertainers, graduation parties, New Year celebrations, birthdays, quests, workshops, bubble shows, paper shows, and greetings with a giant teddy bear",
+    "connectButton": "Contact us"
+  }
+}

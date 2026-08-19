@@ -1,0 +1,19 @@
+{
+  "header": {
+    "home": "Inicio",
+    "events": "Programas",
+    "characters": "Personajes",
+    "services": "Servicios",
+    "about": "Sobre nosotros",
+    "reviews": "Reseñas",
+    "connectButton": "Contáctanos",
+    "adminButton": "Administración"
+  },
+
+  "main_hero": {
+    "title": "CasaDeCuentos",
+    "heading": "Organización y celebración de fiestas infantiles en Costa Brava",
+    "paragraph": "Animadores, fiestas de graduación, celebraciones de Año Nuevo, cumpleaños, búsquedas del tesoro, talleres, espectáculos de burbujas de jabón, shows de papel y felicitaciones con un oso gigante",
+    "connectButton": "Contáctanos"
+  }
+}
