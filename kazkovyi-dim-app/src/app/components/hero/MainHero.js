@@ -10,7 +10,6 @@ import useAos from "@/app/hooks/useAos";
 import { useTranslation } from "react-i18next";
 
 export default function MainHero() {
-  // const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
 
   const popupRef = useRef(null);
@@ -42,31 +41,43 @@ export default function MainHero() {
   useAos();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+    <div className="mx-auto max-w-8xl px-4 md:px-4 lg:px-0">
       <div className="flex flex-col md:flex-row mt-18 lg:mt-0 justify-center items-center">
         <div className="flex">
-          <Image data-aos="fade-right" className="size-14 md:size-16 lg:size-34 rotate-8" src={bird} alt="bird" />
-          <div className="max-w-2xl">
+          <Image
+            data-aos="fade-right"
+            className="size-14 md:size-16 lg:size-30 xl:size-34 rotate-8"
+            src={bird}
+            alt="bird"
+          />
+          <div className="max-w-3xl">
             <h1
               data-aos="fade-zoom-in"
               data-aos-delay={100}
-              className="hero-text-heading text-7xl sm:text-8xl md:text-[120px] lg:text-[176px] -mb-1.25 md:-mb-2.5 lg:-mb-3.75 xl:-mb-8.75"
+              className="hero-text-heading tracking-tight text-7xl sm:text-8xl md:text-[120px] lg:text-[164px] -mb-1.25 md:-mb-2.5 lg:-mb-3.75 xl:-mb-8.75"
             >
-              {t('main_hero.title')}
+              {t("mainHero.title")}
             </h1>
             <h2
               data-aos="fade-zoom-in"
               data-aos-delay={200}
-              className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl/tight font-calibri font-bold text-shadow-2xs text-ochre pr-5"
+              className="text-2xl md:text-3xl lg:text-4xl xl:text-[42px]/tight font-calibri font-bold text-shadow-2xs text-ochre pr-5"
             >
-              {t("main_hero.heading")}
+              {t("mainHero.heading")}
             </h2>
             <p
               data-aos="fade-zoom-in"
               data-aos-delay={300}
-              className="text-md md:text-lg lg:text-xl xl:text-2xl text-tender font-calibri font-normal text-shadow-xs mt-2 md:mt-6 pr-8"
+              className="text-md md:text-lg lg:text-xl xl:text-2xl text-tender font-calibri italic font-normal text-shadow-xs mt-2 md:mt-6 pr-8"
             >
-              {t("main_hero.paragraph")}
+              {t("mainHero.paragraph")}
+            </p>
+            <p
+              data-aos="fade-zoom-in"
+              data-aos-delay={300}
+              className="text-md md:text-lg lg:text-xl xl:text-2xl text-tender font-calibri italic font-normal text-shadow-xs mt-2 md:mt-6 pr-8"
+            >
+              {t("mainHero.paragraph2")}
             </p>
 
             <div ref={popupRef} className="relative w-fit">
@@ -78,11 +89,10 @@ export default function MainHero() {
                 className="mt-4 md:mt-8 font-calibri text-lg md:text-xl cursor-pointer rounded-lg bg-cielo hover:bg-slate-400 transition-all active:bg-slate-600 px-8 md:px-12 py-1.5 md:py-2.5 font-medium text-white shadow-sm"
                 type="button"
                 onClick={() => {
-                  // setIsPopupOpened(false);
                   setIsPopupHeroOpened((prevState) => !prevState);
                 }}
               >
-                {t("main_hero.connectButton")}
+                {t("mainHero.connectButton")}
               </button>
             </div>
           </div>

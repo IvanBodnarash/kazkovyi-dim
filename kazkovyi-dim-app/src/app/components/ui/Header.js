@@ -23,13 +23,17 @@ export default function Header() {
 
   useAos(true);
 
-  function handleopenMobileMenu() {
-    setMobileMenuOpened((prevState) => !prevState);
-  }
+  const openMobileMenu = () => {
+    setMobileMenuOpened(true);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpened(false);
+  };
 
   return (
     <header id="header" className="bg-white fixed w-screen shadow-lg z-20 transition-colors">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12" data-aos="fade-zoom-in">
             <Link className="block text-teal-600" href="/">
@@ -38,7 +42,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="md:flex md:items-center md:gap-12 transition-all">
+          <div className="md:flex md:items-center md:gap-4 transition-all">
             <nav aria-label="Global" className="hidden lg:block">
               <ul className="flex items-center gap-6 text-md">
                 {menuItems.map((item, index) => (
@@ -46,7 +50,7 @@ export default function Header() {
                     {t(item.label)}
                   </NavItem>
                 ))}
-                <li>
+                <li data-aos="fade-zoom-in" data-aos-delay={menuItems.length * 100}>
                   <LanguageSwitcher />
                 </li>
               </ul>
@@ -81,7 +85,7 @@ export default function Header() {
 
               <div className="block lg:hidden">
                 <button
-                  onClick={handleopenMobileMenu}
+                  onClick={openMobileMenu}
                   className="cursor-pointer rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
                 >
                   <svg
@@ -97,7 +101,7 @@ export default function Header() {
                 </button>
               </div>
 
-              <MobileMenu mobileMenuOpened={mobileMenuOpened} handleopenMobileMenu={handleopenMobileMenu} />
+              <MobileMenu mobileMenuOpened={mobileMenuOpened} closeMobileMenu={closeMobileMenu} />
             </div>
           </div>
         </div>

@@ -10,10 +10,11 @@
     "adminButton": "Administración"
   },
 
-  "main_hero": {
+  "mainHero": {
     "title": "CasaDeCuentos",
-    "heading": "Organización y celebración de fiestas infantiles en Costa Brava",
-    "paragraph": "Animadores, fiestas de graduación, celebraciones de Año Nuevo, cumpleaños, búsquedas del tesoro, talleres, espectáculos de burbujas de jabón, shows de papel y felicitaciones con un oso gigante",
+    "heading": "Animación y celebración de eventos infantiles en la Costa Brava",
+    "paragraph": "Ofrecemos animación infantil, animación turística y espectáculos para hoteles, resorts, eventos y celebraciones privadas.",
+    "paragraph2": "Hacemos que cada celebración y cada evento se conviertan en una experiencia única e inolvidable.",
     "connectButton": "Contáctanos"
   }
 }

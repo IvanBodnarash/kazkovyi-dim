@@ -10,10 +10,11 @@
     "adminButton": "Admin"
   },
 
-  "main_hero": {
+  "mainHero": {
     "title": "CasaDeCuentos",
-    "heading": "Organization and hosting of children's parties in Costa Brava",
-    "paragraph": "Entertainers, graduation parties, New Year celebrations, birthdays, quests, workshops, bubble shows, paper shows, and greetings with a giant teddy bear",
+    "heading": "Unforgettable children's parties on the Costa Brava",
+    "paragraph": "We create fun-filled entertainment, activities, and shows for hotels, resorts, events, and private celebrations.",
+    "paragraph2": "We bring every celebration to life with joyful moments and memorable experiences for children and families.",
     "connectButton": "Contact us"
   }
 }

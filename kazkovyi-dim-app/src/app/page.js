@@ -28,7 +28,7 @@ export default function Home() {
       <div className="w-full">
         <div
           id="home"
-          className="bg-[url('/backgrounds/main.png')] bg-contain bg-center items-center justify-center min-h-full xl:min-h-screen pt-8 pb-4 sm:p-20 gap-16"
+          className="bg-[url('/backgrounds/background.svg')] bg-contain bg-center items-center justify-center min-h-full xl:min-h-screen pt-8 pb-4 sm:p-20 gap-16"
         >
           <MainHero />
         </div>

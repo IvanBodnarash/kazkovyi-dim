@@ -2,8 +2,11 @@ import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { IoClose } from "react-icons/io5";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
-export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
+export default function MobileMenu({ mobileMenuOpened, closeMobileMenu }) {
+  const { t } = useTranslation();
+
   return (
     <AnimatePresence>
       {mobileMenuOpened && (
@@ -13,7 +16,7 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-50 bg-opacity-30 backdrop-blur-sm"
-          onClick={handleopenMobileMenu}
+          onClick={closeMobileMenu}
         >
           <motion.div
             initial={{ x: "100%" }}
@@ -25,82 +28,80 @@ export default function MobileMenu({ mobileMenuOpened, handleopenMobileMenu }) {
           >
             <nav aria-label="Global">
               <button
-                onClick={handleopenMobileMenu}
-                className="cursor-pointer absolute right-4 top-[22px] rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                onClick={closeMobileMenu}
+                className="cursor-pointer absolute right-4 top-5.5 rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
               >
                 <IoClose style={{ fontSize: "22px" }} />
               </button>
-              <ul
-                onClick={() => handleopenMobileMenu(false)}
-                className="flex flex-col items-start mt-12 gap-6 text-lg"
-              >
+              <ul className="flex flex-col items-start mt-12 gap-6 text-lg">
                 <li>
                   <Link
+                    onClick={closeMobileMenu}
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
-                    {" "}
-                    Головна{" "}
+                    {t("header.home")}
                   </Link>
                 </li>
 
                 <li>
                   <a
+                    onClick={closeMobileMenu}
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="#events"
                   >
-                    {" "}
-                    Події{" "}
+                    {t("header.events")}
                   </a>
                 </li>
 
                 <li>
                   <a
+                    onClick={closeMobileMenu}
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="#aboutUs"
                   >
-                    {" "}
-                    Про нас{" "}
+                    {t("header.about")}
                   </a>
                 </li>
 
                 <li>
                   <a
+                    onClick={closeMobileMenu}
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="#chars"
                   >
-                    {" "}
-                    Персонажі{" "}
+                    {t("header.characters")}
                   </a>
                 </li>
 
                 <li>
                   <a
+                    onClick={closeMobileMenu}
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="#reviews"
                   >
-                    {" "}
-                    Відгуки{" "}
+                    {t("header.reviews")}
                   </a>
                 </li>
 
                 <li>
                   <a
+                    onClick={closeMobileMenu}
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="#services"
                   >
-                    {" "}
-                    Пакети послуг{" "}
+                    {t("header.services")}
                   </a>
                 </li>
 
                 <li>
                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="https://kazkovyi-dim.sanity.studio/structure"
                   >
-                    {" "}
-                    Керування{" "}
+                    {t("header.adminButton")}
                   </a>
                 </li>
 
