@@ -9,37 +9,45 @@ import ContactsPopupHero from "../ui/ContactsPopupHero";
 import useAos from "@/app/hooks/useAos";
 
 export default function MainHero() {
-  const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
+  // const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
+
+  const popupRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100 && isPopupHeroOpened) {
+      if (window.scrollY > 100) {
+        setIsPopupHeroOpened(false);
+      }
+    };
+
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
         setIsPopupHeroOpened(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isPopupHeroOpened]);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useAos();
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 md:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row mt-18 lg:mt-0 justify-center items-center">
         <div className="flex">
-          <Image
-            data-aos="fade-right"
-            className="size-14 md:size-16 lg:size-34 rotate-8"
-            src={bird}
-            alt="bird"
-          />
+          <Image data-aos="fade-right" className="size-14 md:size-16 lg:size-34 rotate-8" src={bird} alt="bird" />
           <div className="max-w-2xl">
             <h1
               data-aos="fade-zoom-in"
               data-aos-delay={100}
-              className="hero-text-heading text-7xl sm:text-8xl md:text-[120px] lg:text-[176px] mb-[-5px] md:mb-[-10px] lg:mb-[-15px] xl:mb-[-35px]"
+              className="hero-text-heading text-7xl sm:text-8xl md:text-[120px] lg:text-[176px] -mb-1.25 md:-mb-2.5 lg:-mb-3.75 xl:-mb-8.75"
             >
               КазковийДім
             </h1>
@@ -55,16 +63,12 @@ export default function MainHero() {
               data-aos-delay={300}
               className="text-md md:text-lg lg:text-xl xl:text-2xl text-tender font-calibri font-normal text-shadow-xs mt-2 md:mt-6 pr-8"
             >
-              Аніматори, випускні, новорічні свята, дні народження, квести,
-              майстер класи, шоу мильних бульбашок, паперове шоу та привітання
-              ведмедика
+              Аніматори, випускні, новорічні свята, дні народження, квести, майстер класи, шоу мильних бульбашок,
+              паперове шоу та привітання ведмедика
             </p>
 
-            <div className="relative">
-              <ContactsPopupHero
-                isPopupHeroOpened={isPopupHeroOpened}
-                setIsPopupHeroOpened={setIsPopupHeroOpened}
-              />
+            <div ref={popupRef} className="relative w-fit">
+              <ContactsPopupHero isPopupHeroOpened={isPopupHeroOpened} setIsPopupHeroOpened={setIsPopupHeroOpened} />
 
               <button
                 data-aos="fade-zoom-in"
@@ -72,7 +76,7 @@ export default function MainHero() {
                 className="mt-4 md:mt-8 font-calibri text-lg md:text-xl cursor-pointer rounded-lg bg-cielo hover:bg-slate-400 transition-all active:bg-slate-600 px-8 md:px-12 py-1.5 md:py-2.5 font-medium text-white shadow-sm"
                 type="button"
                 onClick={() => {
-                  setIsPopupOpened(false);
+                  // setIsPopupOpened(false);
                   setIsPopupHeroOpened((prevState) => !prevState);
                 }}
               >
@@ -91,7 +95,7 @@ export default function MainHero() {
             src={vedmedyk}
             alt="bear"
             priority
-            className="size-76 md:size-96 lg:size-[550px] object-contain"
+            className="size-76 md:size-96 lg:size-137.5 object-contain"
           />
         </div>
       </div>
