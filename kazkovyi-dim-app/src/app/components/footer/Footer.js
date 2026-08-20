@@ -1,8 +1,13 @@
+"use client";
+
 import { contacts } from "@/app/data/contacts";
 import { menuItems } from "@/app/data/menuItems";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-ochre-500/80 py-38 w-full flex flex-col justify-end items-center pb-12">
       <div className="flex flex-wrap gap-12 flex-row items-center md:items-start justify-center p-14 md:p-0 font-calibri">
@@ -23,7 +28,7 @@ export default function Footer() {
                 key={item.href}
                 href={item.href}
               >
-                {item.label}
+                {t(item.label)}
               </a>
             ))}
           </div>
@@ -36,7 +41,7 @@ export default function Footer() {
                 className="text-white hover:text-slate-300 flex flex-row items-center gap-6"
                 target={contact.newTab ? "_blank" : "_self"}
               >
-                {contact.title}
+                {t(contact.title)}
               </a>
             </div>
           ))}

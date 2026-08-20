@@ -1,21 +1,23 @@
+"use client";
+
 import Image from "next/image";
 
-import { fetchAbouUs } from "@/app/utils/fetchAboutUs";
 import processImage from "@/app/utils/imageProcessor";
 import { PortableText } from "next-sanity";
+import { useTranslation } from "react-i18next";
 
-export default async function AboutUs() {
-  const aboutUsData = await fetchAbouUs();
+export default function AboutUsClient({ aboutUsData }) {
+  const { t } = useTranslation();
   const processedImg = processImage(aboutUsData[0].image);
 
   return (
-    <div className="mx-auto max-w-screen-xl px-8 pb-8 lg:pb-0 md:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-8 pb-8 lg:pb-0 md:px-6 lg:px-8">
       <div className="mt-0 lg:mt-14 items-center font-calibri">
         <h1
           data-aos="fade-up"
           className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-ochre-500"
         >
-          Про нас
+          {t("categories.about")}
         </h1>
         <div
           data-aos="fade-up"

@@ -28,7 +28,7 @@ export const contacts = [
     newTab: true,
   },
   {
-    title: "Подзвонити нам",
+    title: "contactUs",
     href: "tel:0955822876",
     imageUrl:
       "https://raw.githubusercontent.com/IvanBodnarash/kazkovyi-dim/refs/heads/main/kazkovyi-dim-app/public/icons/phone.png",

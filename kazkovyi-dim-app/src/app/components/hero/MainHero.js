@@ -41,7 +41,7 @@ export default function MainHero() {
   useAos();
 
   return (
-    <div className="mx-auto max-w-8xl px-4 md:px-4 lg:px-0">
+    <div className="mx-auto max-w-8xl px-4 md:px-4 lg:px-8">
       <div className="flex flex-col md:flex-row mt-18 lg:mt-0 justify-center items-center">
         <div className="flex">
           <Image

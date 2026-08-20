@@ -16,5 +16,15 @@
     "paragraph": "Ofrecemos animación infantil, animación turística y espectáculos para hoteles, resorts, eventos y celebraciones privadas.",
     "paragraph2": "Hacemos que cada celebración y cada evento se conviertan en una experiencia única e inolvidable.",
     "connectButton": "Contáctanos"
-  }
+  },
+
+  "categories": {
+    "events": "Eventos y novedades",
+    "about": "Sobre nosotros",
+    "characters": "Personajes",
+    "reviews": "Opiniones de clientes",
+    "services": "Servicios"
+  },
+
+  "contactUs": "Llámanos"
 }

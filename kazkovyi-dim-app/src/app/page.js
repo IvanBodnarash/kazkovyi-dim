@@ -2,19 +2,12 @@ import "aos/dist/aos.css";
 
 import MainHero from "./components/hero/MainHero";
 import EventsWrapper from "./components/events/EventsWrapper";
-import AboutUs from "./components/aboutUs/AboutUs";
+import AboutUsWrapper from "./components/aboutUs/AboutUsWrapper";
 import CharactersWrapper from "./components/characters/CharactersWrapper";
 import ReviewsWrapper from "./components/reviews/ReviewsWrapper";
 import ServicesWrapper from "./components/services/ServicesWrapper";
 import Footer from "./components/footer/Footer";
-import {
-  AboutUsSvg,
-  CharactersSvg,
-  EventsSvg,
-  HeroSvg,
-  ReviewsSvg,
-  ServiceSvg,
-} from "./components/ui/SvgElements";
+import { AboutUsSvg, CharactersSvg, EventsSvg, HeroSvg, ReviewsSvg, ServiceSvg } from "./components/ui/SvgElements";
 import { metadataData } from "./seo/metadata";
 import JsonLd from "./seo/jsonLd";
 
@@ -48,7 +41,7 @@ export default function Home() {
           id="aboutUs"
           className="bg-[url('/backgrounds/about-us.png')] bg-cover items-center justify-center min-h-full xl:min-h-screen pt-12 sm:p-14 gap-16"
         >
-          <AboutUs />
+          <AboutUsWrapper />
         </div>
 
         <AboutUsSvg />

@@ -16,5 +16,15 @@
     "paragraph": "We create fun-filled entertainment, activities, and shows for hotels, resorts, events, and private celebrations.",
     "paragraph2": "We bring every celebration to life with joyful moments and memorable experiences for children and families.",
     "connectButton": "Contact us"
-  }
+  },
+
+  "categories": {
+    "events": "Events & updates",
+    "about": "About us",
+    "characters": "Characters",
+    "reviews": "Client reviews",
+    "services": "Services"
+  },
+
+  "contactUs": "Call us"
 }

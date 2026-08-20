@@ -9,8 +9,10 @@ import CharactersDetails from "../ui/CharactersDetails";
 
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import useScreenSize from "@/app/hooks/useScreenSize";
+import { useTranslation } from "react-i18next";
 
 export default function CharactersClient({ chars }) {
+  const { t } = useTranslation();
   const [showCharsDetailsModal, setShowCharsDetailsModal] = useState(false);
   const [selectedData, setSelectedData] = useState();
 
@@ -19,10 +21,8 @@ export default function CharactersClient({ chars }) {
   const itemsPerPage = 8;
   const totalPages = Math.ceil(chars.length / itemsPerPage);
 
-  const nextPortion = () =>
-    setCurrentPortion((prev) => (prev + 1 < totalPages ? prev + 1 : 0));
-  const prevPortion = () =>
-    setCurrentPortion((prev) => (prev - 1 >= 0 ? prev - 1 : totalPages - 1));
+  const nextPortion = () => setCurrentPortion((prev) => (prev + 1 < totalPages ? prev + 1 : 0));
+  const prevPortion = () => setCurrentPortion((prev) => (prev - 1 >= 0 ? prev - 1 : totalPages - 1));
 
   const startIndex = currentPortion * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -34,19 +34,16 @@ export default function CharactersClient({ chars }) {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
         <div className="mt-0 lg:mt-14 items-center font-calibri relative">
           <h1
             data-aos="fade-up"
             className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white"
           >
-            Наші персонажі
+            {t("categories.characters")}
           </h1>
           {screenSize === "desktop" && (
-            <IoIosArrowDropleft
-              className="absolute top-80 text-white text-5xl cursor-pointer"
-              onClick={prevPortion}
-            />
+            <IoIosArrowDropleft className="absolute top-80 text-white text-5xl cursor-pointer" onClick={prevPortion} />
           )}
           <AnimatePresence mode="wait">
             <motion.div
@@ -104,10 +101,7 @@ export default function CharactersClient({ chars }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <CharactersDetails
-              data={selectedData}
-              onClose={() => setShowCharsDetailsModal(false)}
-            />
+            <CharactersDetails data={selectedData} onClose={() => setShowCharsDetailsModal(false)} />
           </motion.div>
         )}
       </AnimatePresence>
