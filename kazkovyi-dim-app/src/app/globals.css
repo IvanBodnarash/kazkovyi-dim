@@ -24,3 +24,64 @@ html {
   font-family: "Miss-Katherine";
   color: #9f9078;
 }
+
+@property --event-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.event-card {
+  position: relative;
+}
+
+.event-card:hover {
+  box-shadow: 0px 0px 50px 2px rgba(255, 255, 255, 0.412);
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 3px;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--event-border-angle),
+    transparent 0deg 290deg,
+    var(--color-cielo) 315deg,
+    var(--color-ochre) 335deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  opacity: 0;
+
+  filter: drop-shadow(0 0 4px var(--color-cielo)) drop-shadow(0 0 8px var(--color-cielo));
+
+  animation: event-border-spin 2s linear infinite;
+  animation-play-state: paused;
+
+  transition: opacity 0.3s ease;
+}
+
+.event-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes event-border-spin {
+  to {
+    --event-border-angle: 360deg;
+  }
+}

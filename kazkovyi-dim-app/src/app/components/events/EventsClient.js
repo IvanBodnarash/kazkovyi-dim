@@ -12,7 +12,7 @@ export default function EventsClient({ events }) {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [selectedData, setSelectedData] = useState();
 
-  useDisableBodyScroll(showDetailsModal);
+  // useDisableBodyScroll(showDetailsModal);
 
   return (
     <>
@@ -41,21 +41,7 @@ export default function EventsClient({ events }) {
           </div>
         </div>
       </div>
-      <AnimatePresence>
-        {showDetailsModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <EventDetails
-              data={selectedData}
-              onClose={() => setShowDetailsModal(false)}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showDetailsModal && <EventDetails data={selectedData} onClose={() => setShowDetailsModal(false)} />}
     </>
   );
 }
