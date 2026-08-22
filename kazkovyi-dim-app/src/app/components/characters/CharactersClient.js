@@ -93,18 +93,10 @@ export default function CharactersClient({ chars }) {
           )}
         </div>
       </div>
-      <AnimatePresence>
-        {showCharsDetailsModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <CharactersDetails data={selectedData} onClose={() => setShowCharsDetailsModal(false)} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+      {showCharsDetailsModal && (
+        <CharactersDetails data={selectedData} onClose={() => setShowCharsDetailsModal(false)} />
+      )}
     </>
   );
 }
