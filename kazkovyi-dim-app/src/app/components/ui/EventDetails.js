@@ -4,6 +4,7 @@ import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import ModalPortal from "./ModalPortal";
 import { motion } from "motion/react";
+import { portableTextNormalizer } from "@/app/utils/portableTextHelper";
 
 export default function EventDetails({ data, onClose }) {
   const processedImg = processImage(data.img);
@@ -56,15 +57,7 @@ export default function EventDetails({ data, onClose }) {
                 <PortableText
                   value={data.description}
                   components={{
-                    block: {
-                      h1: ({ children }) => <h1 className="text-2xl md:text-3xl font-bold mb-3">{children}</h1>,
-
-                      h2: ({ children }) => <h2 className="text-xl md:text-2xl font-bold mb-2">{children}</h2>,
-
-                      h3: ({ children }) => <h3 className="text-lg md:text-xl font-semibold mb-2">{children}</h3>,
-
-                      normal: ({ children }) => <p className="mb-3">{children}</p>,
-                    },
+                    block: portableTextNormalizer,
                     marks: {
                       link: ({ value, children }) => {
                         const target = value?.href?.startsWith("http") ? "_blank" : undefined;

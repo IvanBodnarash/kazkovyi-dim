@@ -5,6 +5,7 @@ import Image from "next/image";
 import processImage from "@/app/utils/imageProcessor";
 import { PortableText } from "next-sanity";
 import { useTranslation } from "react-i18next";
+import { portableTextNormalizer } from "@/app/utils/portableTextHelper";
 
 export default function AboutUsClient({ aboutUsData }) {
   const { t } = useTranslation();
@@ -29,7 +30,7 @@ export default function AboutUsClient({ aboutUsData }) {
             width={800}
             height={400}
             alt="aboutUs"
-            className="h-60 md:h-120 w-full md:max-w-100 rounded-3xl shadow-xl/20 hover:scale-105 object-cover cursor-pointer transition-all"
+            className="h-60 md:h-110 w-full md:max-w-100 rounded-3xl shadow-xl/20 hover:scale-105 object-cover cursor-pointer transition-all"
           />
           <div
             data-aos="fade-up"
@@ -39,20 +40,15 @@ export default function AboutUsClient({ aboutUsData }) {
             <PortableText
               value={aboutUsData[0].description}
               components={{
+                block: portableTextNormalizer,
                 marks: {
                   link: ({ value, children }) => {
-                    const target = value?.href?.startsWith("http")
-                      ? "_blank"
-                      : undefined;
+                    const target = value?.href?.startsWith("http") ? "_blank" : undefined;
                     return (
                       <a
                         href={value?.href}
                         target={target}
-                        rel={
-                          target === "_blank"
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
+                        rel={target === "_blank" ? "noopener noreferrer" : undefined}
                         className="text-gray-600 underline hover:text-gray-500 transition-colors"
                       >
                         {children}
