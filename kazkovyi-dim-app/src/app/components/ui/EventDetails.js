@@ -33,7 +33,7 @@ export default function EventDetails({ data, onClose }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-ochre p-2 rounded-xl relative">
-              <div className="absolute right-5 bottom-8 rounded-sm bg-cielo p-1">{data.processedDate}</div>
+              <div className="absolute right-5 bottom-8 rounded-sm bg-cielo/80 p-1">{data.processedDate}</div>
               <Image
                 className="rounded-xl h-60 min-w-70 lg:w-100 lg:h-100 object-cover"
                 src={processedImg}
@@ -44,9 +44,6 @@ export default function EventDetails({ data, onClose }) {
             </div>
 
             <div className="w-full md:w-3/4 overflow-y-auto md:overflow-hidden">
-              {/* <h1 className="text-ochre-500 text-md md:text-lg lg:text-xl mb-2 font-bold">
-              {data.title}
-            </h1> */}
               <div className="flex flex-row justify-between items-center text-ochre-500 font-bold">
                 <h1 className="mb-2 text-xl lg:text-2xl">{data.title}</h1>
                 <button aria-label="Close" onClick={onClose} className="cursor-pointer hidden md:block">

@@ -26,5 +26,9 @@
     "services": "Послуги"
   },
 
-  "contactUs": "Подзвонити нам"
+  "contactUs": "Подзвонити нам",
+
+  "serviceMessages": {
+    "descriptionUnavailable": "Опис не доступний"
+  }
 }

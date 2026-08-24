@@ -26,5 +26,9 @@
     "services": "Services"
   },
 
-  "contactUs": "Call us"
+  "contactUs": "Call us",
+
+  "serviceMessages": {
+    "descriptionUnavailable": "Description unavailable"
+  }
 }

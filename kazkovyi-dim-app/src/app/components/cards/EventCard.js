@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 export default function EventCard({ title, description, img, date, setShowDetailsModal, setSelectedData, ...props }) {
   const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const processedImg = processImage(img);
   const processedDate = processDate(date, i18n.language);
 
@@ -36,7 +37,7 @@ export default function EventCard({ title, description, img, date, setShowDetail
         </div>
         <h1 className="mt-2 text-lg md:text-xl font-black text-ochre-500">{title}</h1>
         <p className="line-clamp-3 mt-1 text-ochre-500">
-          {description?.[0]?.children?.[0]?.text || "Опис не доступний"}
+          {description?.[0]?.children?.[0]?.text || t("serviceMessages.descriptionUnavailable")}
         </p>
       </div>
     </div>

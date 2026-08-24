@@ -18,6 +18,16 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden !important;
+  scrollbar-gutter: stable;
+  color-scheme: light;
+}
+
+html.modal-open {
+  overflow: hidden;
+}
+
+.modal-open {
+  overflow-y: hidden;
 }
 
 .hero-text-heading {

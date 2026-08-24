@@ -4,11 +4,14 @@ import EventCard from "../cards/EventCard";
 import { useState } from "react";
 import EventDetails from "../ui/EventDetails";
 import { useTranslation } from "react-i18next";
+import useDisableBodyScroll from "@/app/hooks/useDisableBodyScroll";
 
 export default function EventsClient({ events }) {
   const { t } = useTranslation();
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [selectedData, setSelectedData] = useState();
+
+  useDisableBodyScroll(showDetailsModal);
 
   return (
     <>

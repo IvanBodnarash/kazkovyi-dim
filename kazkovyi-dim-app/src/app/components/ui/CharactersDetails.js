@@ -43,9 +43,6 @@ export default function CharactersDetails({ data, onClose }) {
             </div>
 
             <div className="w-full md:w-2/4 overflow-auto">
-              {/* <h1 className="text-ochre-500 text-md md:text-lg lg:text-xl mb-2 font-bold">
-              {data.title}
-            </h1> */}
               <div className="flex flex-row justify-between items-start text-ochre-500 font-bold">
                 <h1 className="mb-2 text-xl lg:text-2xl">{data.title}</h1>
                 <button aria-label="Close" onClick={onClose} className="hover:opacity-50 transition-opacity">
