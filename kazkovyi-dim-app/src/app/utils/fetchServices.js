@@ -2,17 +2,17 @@ import { client } from "@/sanity/client";
 
 export async function fetchServices() {
   const SERVICES_QUERY = `*[_type == "services"]{
-        _id,
-        title,
-        image,
-        duration,
-        price,
-        servicesList[]->{
-          title,
-          "imageUrl": image.asset->url
-        },
-        publishedAt
-    }`;
+    _id,
+    title,
+    image,
+    shortDescription,
+    description,
+    gallery[]{
+      _key,
+      alt,
+      asset
+    }
+  }`;
 
   const options = { next: { revalidate: 30 } };
 

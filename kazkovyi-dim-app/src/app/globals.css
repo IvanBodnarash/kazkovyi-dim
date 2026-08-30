@@ -109,3 +109,65 @@ html.modal-open {
     --event-border-angle: 360deg;
   }
 }
+
+.service-ticket-shadow {
+  filter: drop-shadow(0 12px 12px rgb(0 0 0 / 0.15));
+}
+
+.service-ticket {
+  --ticket-hole: 7px;
+  --ticket-step: 30px;
+
+  mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  mask-composite: intersect;
+
+  -webkit-mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  -webkit-mask-composite: source-in;
+}
+
+.ticket-divider {
+  margin: 14px -16px 0;
+
+  border-top: 2px dashed color-mix(in srgb, var(--color-ochre) 50%, transparent);
+
+  transition: border-color 0.3s ease;
+}
+
+.service-ticket:hover .ticket-divider {
+  border-color: color-mix(in srgb, var(--color-crema) 70%, transparent);
+}
+
+.service-details-ticket {
+  --ticket-hole: 7px;
+  --ticket-step: 30px;
+
+  mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  mask-composite: intersect;
+
+  -webkit-mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  -webkit-mask-composite: source-in;
+}
+
+.service-details-divider {
+  border-top: 2px dashed color-mix(in srgb, var(--color-ochre) 40%, transparent);
+}

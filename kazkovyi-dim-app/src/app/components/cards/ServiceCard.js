@@ -4,9 +4,9 @@ import Image from "next/image";
 export default function ServiceCard({
   title,
   img,
-  duration,
-  price,
-  servicesList,
+  shortDescription,
+  description,
+  gallery,
   setShowDetailsModal,
   setSelectedData,
   ...props
@@ -14,34 +14,76 @@ export default function ServiceCard({
   const processedImg = processImage(img);
 
   return (
-    <div {...props}>
+    <div {...props} className="service-ticket-shadow">
       <div
-        className="bg-crema border border-ochre/70 rounded-2xl w-5/6 md:w-96 h-full m-auto p-4 md:p-6 shadow-xl cursor-pointer hover:scale-105 transition-all"
+        className="
+          service-ticket
+          group
+          bg-crema
+          hover:bg-ochre-500
+          w-5/6 md:w-96
+          h-full
+          m-auto
+          p-3 md:p-4
+          cursor-pointer
+          hover:scale-102
+          transform-gpu
+          transition-all
+          duration-300
+        "
         onClick={() => {
           setSelectedData({
             title,
-            duration,
-            price,
-            servicesList,
+            img,
+            description,
+            gallery,
           });
+
           setShowDetailsModal(true);
         }}
       >
-        <h1 className="mb-4 text-xl md:text-2xl font-black text-center text-ochre-500">
-          {title}
-        </h1>
-        <div className="bg-ochre p-3 rounded-xl relative">
+        <div className="bg-ochre p-2 rounded-xl">
           <Image
-            className="rounded-xl h-70 object-cover"
+            className="rounded-xl h-42 w-full object-cover"
             src={processedImg}
             width={800}
             height={400}
-            alt="service-card-img"
+            alt={title}
           />
         </div>
-        <div className="mt-4 text-lg md:text-xl">
-          <p className="text-ochre-500">Тривалість: {duration}</p>
-          <p className="text-ochre-500">Вартість: {price}</p>
+
+        <div className="ticket-divider" />
+
+        <div className="pt-4 min-h-26 flex flex-col items-center">
+          <h1
+            className="
+              text-xl md:text-2xl
+              font-black
+              text-center
+              text-ochre-500
+              group-hover:text-crema
+              transition-colors
+              duration-300
+            "
+          >
+            {title}
+          </h1>
+
+          {shortDescription && (
+            <p
+              className="
+                text-sm md:text-base
+                text-center
+                text-ochre-500/80
+                group-hover:text-crema/80
+                transition-colors
+                duration-300
+                line-clamp-3
+              "
+            >
+              {shortDescription}
+            </p>
+          )}
         </div>
       </div>
     </div>

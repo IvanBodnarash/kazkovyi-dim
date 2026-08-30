@@ -24,17 +24,17 @@ export default function ServicesClient({ services }) {
           >
             {t("categories.services")}
           </h1>
-          <div className="flex flex-wrap justify-center mt-8 gap-8">
+          <div className="flex flex-wrap justify-between mt-8 gap-6">
             {services.map((service, index) => (
               <ServiceCard
+                key={service._id}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                key={index}
                 title={service.title}
                 img={service.image}
-                duration={service.duration}
-                price={service.price}
-                servicesList={service.servicesList}
+                shortDescription={service.shortDescription}
+                description={service.description}
+                gallery={service.gallery}
                 setShowDetailsModal={setShowDetailsModal}
                 setSelectedData={setSelectedData}
               />
@@ -42,17 +42,9 @@ export default function ServicesClient({ services }) {
           </div>
         </div>
       </div>
+
       <AnimatePresence>
-        {showDetailsModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <ServicesDetails data={selectedData} onClose={() => setShowDetailsModal(false)} />
-          </motion.div>
-        )}
+        {showDetailsModal && <ServicesDetails data={selectedData} onClose={() => setShowDetailsModal(false)} />}
       </AnimatePresence>
     </>
   );
