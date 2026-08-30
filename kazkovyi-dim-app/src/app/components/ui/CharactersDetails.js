@@ -15,7 +15,7 @@ export default function CharactersDetails({ data, onClose }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.25 }}
         className="fixed inset-0 z-50 bg-opacity-30 bg-black/40 backdrop-blur-sm m-auto"
         onClick={onClose}
       >
@@ -28,8 +28,27 @@ export default function CharactersDetails({ data, onClose }) {
         </button>
 
         <div className="flex justify-center items-center shadow-lg p-4 md:p-6 h-full">
-          <div
-            className="bg-crema border border-ochre/70 flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-50 xl:m-70 p-6 h-fit max-h-130 shadow-xl transition-all"
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.95,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.95,
+              y: 20,
+            }}
+            transition={{
+              duration: 0.25,
+              ease: "easeOut",
+            }}
+            className="bg-crema border border-ochre/70 flex flex-col md:flex-row gap-2 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-50 xl:m-70 p-6 h-fit max-h-130 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-ochre p-2 rounded-xl relative">
@@ -73,7 +92,7 @@ export default function CharactersDetails({ data, onClose }) {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </ModalPortal>

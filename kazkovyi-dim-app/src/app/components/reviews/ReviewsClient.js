@@ -8,10 +8,12 @@ import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import ReviewBubble from "../ui/ReviewBubble";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import ReviewDetails from "../ui/ReviewDetails";
 
 export default function ReviewsClient({ reviews }) {
   const { t } = useTranslation();
   const [currentPortion, setCurrentPortion] = useState(0);
+  const [selectedReview, setSelectedReview] = useState(null);
 
   const itemsPerPage = 3;
   const totalPages = Math.ceil(reviews.length / itemsPerPage);
@@ -38,7 +40,12 @@ export default function ReviewsClient({ reviews }) {
             className="flex flex-col lg:flex-row mt-6 lg:mt-0 justify-center items-center gap-8"
           >
             <div className="bg-slate-500/60 p-3 rounded-4xl relative flex justify-center overflow-hidden h-140 lg:h-full w-full lg:w-180">
-              <div className="absolute inset-0 bg-[url('/backgrounds/reviews-inner.png')] bg-cover opacity-40 z-0 m-3 rounded-4xl"></div>
+              <div
+                className="reviews-moving-bg absolute inset-0 bg-[url('/backgrounds/reviews-inner.png')]
+                            bg-repeat bg-size-[700px_auto] opacity-40
+                            z-0 m-3 rounded-4xl
+                          "
+              ></div>
               <div className="relative z-10 flex items-center gap-1 lg:gap-8 max-h-full lg:h-100 my-4 px-2 lg:px-0">
                 <IoIosArrowDropleft className="text-white text-5xl cursor-pointer" onClick={prevPortion} />
                 <AnimatePresence mode="wait">
@@ -51,9 +58,18 @@ export default function ReviewsClient({ reviews }) {
                     className="flex flex-col justify-center items-center gap-4"
                   >
                     {visibleReviews.map((review, index) => (
-                      <ReviewBubble data-aos="fade-up" data-aos-delay={index * 100} key={index} data={review} />
+                      <ReviewBubble
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                        key={index}
+                        data={review}
+                        onClick={() => setSelectedReview(review)}
+                      />
                     ))}
                   </motion.div>
+                </AnimatePresence>
+                <AnimatePresence>
+                  {selectedReview && <ReviewDetails data={selectedReview} onClose={() => setSelectedReview(null)} />}
                 </AnimatePresence>
                 <IoIosArrowDropright className="text-white text-5xl cursor-pointer" onClick={nextPortion} />
               </div>

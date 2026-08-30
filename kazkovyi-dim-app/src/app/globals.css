@@ -90,6 +90,20 @@ html.modal-open {
   animation-play-state: running;
 }
 
+.reviews-moving-bg {
+  animation: reviews-bg-move 25s linear infinite;
+}
+
+@keyframes reviews-bg-move {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 500px 300px;
+  }
+}
+
 @keyframes event-border-spin {
   to {
     --event-border-angle: 360deg;

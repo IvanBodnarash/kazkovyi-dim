@@ -94,9 +94,11 @@ export default function CharactersClient({ chars }) {
         </div>
       </div>
 
-      {showCharsDetailsModal && (
-        <CharactersDetails data={selectedData} onClose={() => setShowCharsDetailsModal(false)} />
-      )}
+      <AnimatePresence>
+        {showCharsDetailsModal && (
+          <CharactersDetails data={selectedData} onClose={() => setShowCharsDetailsModal(false)} />
+        )}
+      </AnimatePresence>
     </>
   );
 }
