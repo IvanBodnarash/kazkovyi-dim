@@ -1,11 +1,13 @@
 import { motion, AnimatePresence } from "motion/react";
-import { contacts } from "@/app/data/contacts";
 import ContactItem from "./ContactItem";
+import { useTranslation } from "react-i18next";
+import { useContacts } from "@/app/context/ContactsContext";
+import { contactItems } from "@/app/data/contacts";
 
-export default function ContactsPopupHero({
-  isPopupHeroOpened,
-  setIsPopupHeroOpened,
-}) {
+export default function ContactsPopupHero({ isPopupHeroOpened, setIsPopupHeroOpened }) {
+  const { t } = useTranslation();
+  const contacts = useContacts();
+
   return (
     <AnimatePresence>
       {isPopupHeroOpened && (
@@ -17,17 +19,22 @@ export default function ContactsPopupHero({
           className="absolute flex justify-center flex-col overflow-hidden bottom-12 md:bottom-16 rounded-2xl w-60 bg-white text-gray-500 shadow-2xl"
           onClick={() => setIsPopupHeroOpened(false)}
         >
-          {contacts.map((contact) => (
-            <div key={contact.href}>
-              <ContactItem
-                title={contact.title}
-                href={contact.href}
-                imageUrl={contact.imageUrl}
-                newTab={contact.newTab}
-              />
-              <hr className="text-gray-300" />
-            </div>
-          ))}
+          {contactItems.map((contact) => {
+            let href = contacts?.[contact.key];
+
+            if (contact.key === "phone" && contacts?.phone) {
+              href = `tel:${contacts.phone.replace(/\s/g, "")}`;
+            }
+
+            if (!href) return null;
+
+            return (
+              <div key={contact.key}>
+                <ContactItem title={t(contact.title)} href={href} imageUrl={contact.imageUrl} newTab={contact.newTab} />
+                <hr className="text-gray-300" />
+              </div>
+            );
+          })}
         </motion.div>
       )}
     </AnimatePresence>

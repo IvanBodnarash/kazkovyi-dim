@@ -1,35 +1,35 @@
-export const contacts = [
+export const contactItems = [
   {
+    key: "instagram",
     title: "Instagram",
-    href: "https://ig.me/m/kazkovyidim.cv",
     imageUrl:
       "https://raw.githubusercontent.com/IvanBodnarash/kazkovyi-dim/refs/heads/main/kazkovyi-dim-app/public/icons/Instagram_icon.png",
     newTab: true,
   },
   {
+    key: "telegram",
     title: "Telegram",
-    href: "https://t.me/sbdnr",
     imageUrl:
       "https://raw.githubusercontent.com/IvanBodnarash/kazkovyi-dim/refs/heads/main/kazkovyi-dim-app/public/icons/Telegram_2019_Logo.svg.png",
     newTab: true,
   },
   {
+    key: "viber",
     title: "Viber",
-    href: "viber://chat?number=380955822876",
     imageUrl:
       "https://raw.githubusercontent.com/IvanBodnarash/kazkovyi-dim/refs/heads/main/kazkovyi-dim-app/public/icons/viber.png",
     newTab: true,
   },
   {
+    key: "whatsapp",
     title: "WhatsApp",
-    href: "https://api.whatsapp.com/send?phone=380955822876",
     imageUrl:
       "https://raw.githubusercontent.com/IvanBodnarash/kazkovyi-dim/refs/heads/main/kazkovyi-dim-app/public/icons/whatsapp.png",
     newTab: true,
   },
   {
+    key: "phone",
     title: "contactUs",
-    href: "tel:0955822876",
     imageUrl:
       "https://raw.githubusercontent.com/IvanBodnarash/kazkovyi-dim/refs/heads/main/kazkovyi-dim-app/public/icons/phone.png",
     newTab: false,

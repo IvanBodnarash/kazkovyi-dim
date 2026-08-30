@@ -14,6 +14,7 @@ import MobileMenu from "./MobileMenu";
 import NavItem from "./NavItem";
 import useAos from "@/app/hooks/useAos";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useContacts } from "@/app/context/ContactsContext";
 
 export default function Header() {
   const { t } = useTranslation();

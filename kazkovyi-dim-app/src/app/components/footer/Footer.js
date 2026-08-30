@@ -1,12 +1,14 @@
 "use client";
 
-import { contacts } from "@/app/data/contacts";
+import { useContacts } from "@/app/context/ContactsContext";
+import { contactItems, contacts } from "@/app/data/contacts";
 import { menuItems } from "@/app/data/menuItems";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const { t } = useTranslation();
+  const contacts = useContacts();
 
   return (
     <div className="bg-ochre-500/80 py-38 w-full flex flex-col justify-end items-center pb-12">
@@ -23,33 +25,39 @@ export default function Footer() {
         <div className="">
           <div className="flex flex-wrap flex-col lg:flex-row gap-1 lg:gap-4">
             {menuItems.map((item) => (
-              <a
-                className="text-white text-lg lg:text-xl hover:text-slate-300"
-                key={item.href}
-                href={item.href}
-              >
+              <a className="text-white text-lg lg:text-xl hover:text-slate-300" key={item.href} href={item.href}>
                 {t(item.label)}
               </a>
             ))}
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          {contacts.map((contact) => (
-            <div key={contact.imageUrl} className="flex flex-row gap-2">
-              <a
-                href={contact.href}
-                className="text-white hover:text-slate-300 flex flex-row items-center gap-6"
-                target={contact.newTab ? "_blank" : "_self"}
-              >
-                {t(contact.title)}
-              </a>
-            </div>
-          ))}
+          {contactItems.map((contact) => {
+            let href = contacts?.[contact.key];
+
+            if (contact.key === "phone" && contacts?.phone) {
+              href = `tel:${contacts.phone.replace(/\s/g, "")}`;
+            }
+
+            if (!href) return null;
+
+            return (
+              <div key={contact.key} className="flex flex-row gap-2">
+                <a
+                  href={href}
+                  className="text-white hover:text-slate-300 flex flex-row items-center gap-6"
+                  target={contact.newTab ? "_blank" : undefined}
+                  rel={contact.newTab ? "noopener noreferrer" : undefined}
+                >
+                  {t(contact.title)}
+                </a>
+              </div>
+            );
+          })}
         </div>
       </div>
       <p className="font-mono text-sm lg:text-md text-slate-50/50 mt-8 lg:mt-2">
-        Built and designed by{" "}
-        <a href="https://ivanbodnarash.vercel.app/">Ivan Bodnarash</a>
+        Built and designed by <a href="https://ivanbodnarash.vercel.app/">Ivan Bodnarash</a>
       </p>
     </div>
   );
