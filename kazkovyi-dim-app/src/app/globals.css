@@ -18,9 +18,156 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden !important;
+  scrollbar-gutter: stable;
+  color-scheme: light;
+}
+
+html.modal-open {
+  overflow: hidden;
+}
+
+.modal-open {
+  overflow-y: hidden;
 }
 
 .hero-text-heading {
   font-family: "Miss-Katherine";
   color: #9f9078;
+}
+
+@property --event-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.event-card {
+  position: relative;
+}
+
+.event-card:hover {
+  box-shadow: 0px 0px 50px 2px rgba(255, 255, 255, 0.412);
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 3px;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--event-border-angle),
+    transparent 0deg 290deg,
+    var(--color-cielo) 315deg,
+    var(--color-ochre) 335deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  opacity: 0;
+
+  filter: drop-shadow(0 0 4px var(--color-cielo)) drop-shadow(0 0 8px var(--color-cielo));
+
+  animation: event-border-spin 2s linear infinite;
+  animation-play-state: paused;
+
+  transition: opacity 0.3s ease;
+}
+
+.event-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.reviews-moving-bg {
+  animation: reviews-bg-move 25s linear infinite;
+}
+
+@keyframes reviews-bg-move {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 500px 300px;
+  }
+}
+
+@keyframes event-border-spin {
+  to {
+    --event-border-angle: 360deg;
+  }
+}
+
+.service-ticket-shadow {
+  filter: drop-shadow(0 12px 12px rgb(0 0 0 / 0.15));
+}
+
+.service-ticket {
+  --ticket-hole: 7px;
+  --ticket-step: 30px;
+
+  mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  mask-composite: intersect;
+
+  -webkit-mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  -webkit-mask-composite: source-in;
+}
+
+.ticket-divider {
+  margin: 14px -16px 0;
+
+  border-top: 2px dashed color-mix(in srgb, var(--color-ochre) 50%, transparent);
+
+  transition: border-color 0.3s ease;
+}
+
+.service-ticket:hover .ticket-divider {
+  border-color: color-mix(in srgb, var(--color-crema) 70%, transparent);
+}
+
+.service-details-ticket {
+  --ticket-hole: 7px;
+  --ticket-step: 30px;
+
+  mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  mask-composite: intersect;
+
+  -webkit-mask:
+    radial-gradient(circle at 15px 0, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x,
+    radial-gradient(circle at 15px 100%, transparent 0 var(--ticket-hole), #000 calc(var(--ticket-hole) + 0.5px)) 0 0 /
+      var(--ticket-step) 100% repeat-x;
+
+  -webkit-mask-composite: source-in;
+}
+
+.service-details-divider {
+  border-top: 2px dashed color-mix(in srgb, var(--color-ochre) 40%, transparent);
 }

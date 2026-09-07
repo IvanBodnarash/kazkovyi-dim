@@ -3,7 +3,6 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://kazkovyi-dim.vercel.app/
-
+Host: https://casadecuentoseventos.com
 # Sitemaps
-Sitemap: https://kazkovyi-dim.vercel.app/sitemap.xml
+Sitemap: https://casadecuentoseventos.com/sitemap.xml

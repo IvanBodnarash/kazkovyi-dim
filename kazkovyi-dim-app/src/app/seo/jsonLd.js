@@ -2,25 +2,32 @@ export default function JsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Казковий Дім",
-    description:
-      "Організація дитячих свят, аніматори та шоу-програми в Чернівцях",
-    url: "https://kazkovyi-dim.vercel.app/",
-    image: "https://kazkovyi-dim.vercel.app/og-image.jpg",
+    name: "Casa de Cuentos",
+    description: "Animación infantil y turística para fiestas, hoteles, eventos y celebraciones en la Costa Brava.",
+    url: "https://casadecuentoseventos.com",
+    image: "https://casadecuentoseventos.com/og-image.jpg",
+
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Чернівці",
-      addressCountry: "UA",
+      addressLocality: "Lloret de Mar",
+      addressRegion: "Girona",
+      addressCountry: "ES",
     },
-    sameAs: ["https://www.instagram.com/kazkovyidim.cv/"],
+
+    areaServed: {
+      "@type": "Place",
+      name: "Costa Brava, Girona, España",
+    },
+
+    sameAs: ["https://www.instagram.com/casadecuentos.es/"],
   };
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd),
+      }}
+    />
   );
 }

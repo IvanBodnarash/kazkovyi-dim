@@ -1,0 +1,35 @@
+{
+  "header": {
+    "home": "Inicio",
+    "events": "Programas",
+    "characters": "Personajes",
+    "services": "Servicios",
+    "about": "Sobre nosotros",
+    "reviews": "Reseñas",
+    "connectButton": "Contáctanos",
+    "adminButton": "Administración"
+  },
+
+  "mainHero": {
+    "title": "CasaDeCuentos",
+    "heading": "Animación y celebración de eventos infantiles en la Costa Brava",
+    "paragraph": "Ofrecemos animación infantil, animación turística y espectáculos para hoteles, resorts, eventos y celebraciones privadas.",
+    "paragraph2": "Hacemos que cada celebración y cada evento se conviertan en una experiencia única e inolvidable.",
+    "connectButton": "Contáctanos"
+  },
+
+  "categories": {
+    "events": "Eventos y novedades",
+    "about": "Sobre nosotros",
+    "characters": "Personajes",
+    "reviews": "Opiniones de clientes",
+    "services": "Servicios"
+  },
+
+  "contactUs": "Llámanos",
+
+  "serviceMessages": {
+    "descriptionUnavailable": "Descripción no disponible",
+    "gallery": "Galería"
+  }
+}

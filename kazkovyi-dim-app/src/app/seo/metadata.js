@@ -1,34 +1,46 @@
 export const metadataData = {
-  title: "Казковий Дім - Аніматори та Дитячі Свята",
+  metadataBase: new URL("https://casadecuentoseventos.com"),
+
+  title: "Casa de Cuentos - Animación Infantil en la Costa Brava",
+
   icons: {
     icon: "/favicon.ico",
   },
+
   description:
-    "Замовте найкраще дитяче свято в Чернівцях з Казковим Домом! Веселі аніматори, яскраві шоу та незабутні емоції.",
+    "Animación infantil, espectáculos y entretenimiento para fiestas, hoteles, resorts y eventos en la Costa Brava. Creamos celebraciones únicas para niños y familias.",
+
   keywords:
-    "аніматори Чернівці, дитячі свята, організація свят, шоу для дітей, Чернівці свято",
+    "animación infantil Costa Brava, animadores infantiles Costa Brava, fiestas infantiles Costa Brava, espectáculos infantiles, animación para hoteles, animación turística, eventos infantiles Girona, fiestas para niños",
+
   openGraph: {
-    title: "Казковий Дім - Дитячі Свята в Чернівцях",
-    description:
-      "Свята, які запам’ятаються дітям і батькам. Веселі герої, ігри, шоу та магія!",
-    url: "https://kazkovyi-dim.vercel.app/",
-    siteName: "Казковий Дім",
+    title: "Casa de Cuentos - Animación Infantil en la Costa Brava",
+
+    description: "Animación, personajes, juegos y espectáculos para fiestas, hoteles y eventos en la Costa Brava.",
+
+    url: "https://casadecuentoseventos.com",
+
+    siteName: "Casa de Cuentos",
+
     images: [
       {
-        url: "https://kazkovyi-dim.vercel.app/og-image.jpg",
+        url: "https://casadecuentoseventos.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Дитяче свято з аніматорами",
+        alt: "Animación infantil y celebraciones en la Costa Brava",
       },
     ],
-    locale: "uk_UA",
+
+    locale: "es_ES",
     type: "website",
   },
+
   robots: {
     index: true,
     follow: true,
   },
+
   alternates: {
-    canonical: "https://kazkovyi-dim.vercel.app/",
+    canonical: "https://casadecuentoseventos.com",
   },
 };

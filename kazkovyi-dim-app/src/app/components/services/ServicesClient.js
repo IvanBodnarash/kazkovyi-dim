@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from "motion/react";
 import useDisableBodyScroll from "@/app/hooks/useDisableBodyScroll";
 import ServiceCard from "../cards/ServiceCard";
 import ServicesDetails from "../ui/ServicesDetails";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesClient({ services }) {
+  const { t } = useTranslation();
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [selectedData, setSelectedData] = useState();
 
@@ -14,25 +16,25 @@ export default function ServicesClient({ services }) {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-8 lg:pb-0 md:px-6 lg:px-8">
         <div className="mt-0 lg:mt-14 items-center font-calibri">
           <h1
             data-aos="fade-zoom-in"
             className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-white"
           >
-            Пакети Послуг
+            {t("categories.services")}
           </h1>
-          <div className="flex flex-wrap justify-center mt-8 gap-8">
+          <div className="flex flex-col md:flex-row md:flex-wrap justify-center mt-8 gap-6">
             {services.map((service, index) => (
               <ServiceCard
+                key={service._id}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                key={index}
                 title={service.title}
                 img={service.image}
-                duration={service.duration}
-                price={service.price}
-                servicesList={service.servicesList}
+                shortDescription={service.shortDescription}
+                description={service.description}
+                gallery={service.gallery}
                 setShowDetailsModal={setShowDetailsModal}
                 setSelectedData={setSelectedData}
               />
@@ -40,20 +42,9 @@ export default function ServicesClient({ services }) {
           </div>
         </div>
       </div>
+
       <AnimatePresence>
-        {showDetailsModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <ServicesDetails
-              data={selectedData}
-              onClose={() => setShowDetailsModal(false)}
-            />
-          </motion.div>
-        )}
+        {showDetailsModal && <ServicesDetails data={selectedData} onClose={() => setShowDetailsModal(false)} />}
       </AnimatePresence>
     </>
   );

@@ -1,8 +1,15 @@
-import { eventsType } from './eventsType'
-import { aboutUsType } from './aboutUsType'
-import { charsType } from './charsType'
-import { reviewsType } from './reviewsType'
-import { servicesType } from './servicesType'
-import { servicesItems } from './serviceItems'
+import {eventsType} from './eventsType'
+import {aboutUsType} from './aboutUsType'
+import {charsType} from './charsType'
+import {reviewsType} from './reviewsType'
+import {servicesType} from './servicesType'
+import {contactsType} from './contactsType'
 
-export const schemaTypes = [eventsType, aboutUsType, charsType, reviewsType, servicesType, servicesItems]
+export const schemaTypes = [
+  eventsType,
+  aboutUsType,
+  charsType,
+  reviewsType,
+  servicesType,
+  contactsType,
+]
