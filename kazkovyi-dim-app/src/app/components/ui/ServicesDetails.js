@@ -11,8 +11,10 @@ import ModalPortal from "./ModalPortal";
 import processImage from "@/app/utils/imageProcessor";
 import { portableTextNormalizer } from "@/app/utils/portableTextHelper";
 import ImageWithSkeleton from "./ImageWithSkeleton";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesDetails({ data, onClose }) {
+  const { t } = useTranslation();
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   const hasGallery = data.gallery?.length > 0;
@@ -78,8 +80,9 @@ export default function ServicesDetails({ data, onClose }) {
               className="
                 service-details-ticket
                 bg-crema
+                rounded-xl
                 w-full
-                max-w-4xl
+                max-w-6xl
                 p-7 md:p-9
                 shadow-xl
               "
@@ -133,7 +136,7 @@ export default function ServicesDetails({ data, onClose }) {
                 <>
                   <div className="service-details-divider my-6" />
 
-                  <h2 className="text-lg md:text-xl font-bold text-ochre-500 mb-4">Galería</h2>
+                  <h2 className="text-lg md:text-xl font-bold text-ochre-500 mb-4">{t("serviceMessages.gallery")}</h2>
                   <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3">
                     {data.gallery.map((image, index) => {
                       const imageUrl = processImage(image);
@@ -151,7 +154,7 @@ export default function ServicesDetails({ data, onClose }) {
                             height={350}
                             alt={image.alt || `${data.title} ${index + 1}`}
                             className="
-                              w-40 h-40
+                              w-20 h-20
                               md:w-30 md:h-30
                               object-cover
                               transition-transform
@@ -204,11 +207,13 @@ export default function ServicesDetails({ data, onClose }) {
                 <IoClose size={32} />
               </button>
 
+              {/* Left Arrow */}
               {data.gallery.length > 1 && (
                 <button
                   aria-label="Previous image"
                   onClick={prevImage}
                   className="
+                    hidden lg:flex
                     absolute
                     left-3 md:left-8
                     text-white
@@ -222,6 +227,7 @@ export default function ServicesDetails({ data, onClose }) {
                 </button>
               )}
 
+              {/* Image */}
               <motion.div
                 initial={{
                   opacity: 0,
@@ -245,6 +251,7 @@ export default function ServicesDetails({ data, onClose }) {
                   max-w-6xl
                   max-h-[90vh]
                   flex
+                  flex-col
                   items-center
                   justify-center
                 "
@@ -255,8 +262,9 @@ export default function ServicesDetails({ data, onClose }) {
                   height={1200}
                   alt={data.gallery[selectedImageIndex].alt || `${data.title} ${selectedImageIndex + 1}`}
                   className="
-                    max-w-full
-                    max-h-[85vh]
+                    max-w-3xl
+                    max-h-[75vh]
+                    md:max-h-[85vh]
                     w-auto
                     h-auto
                     object-contain
@@ -264,30 +272,66 @@ export default function ServicesDetails({ data, onClose }) {
                   "
                 />
 
+                {/* Mobile and tablets arrows under the image */}
                 {data.gallery.length > 1 && (
-                  <div
-                    className="
-                      absolute
-                      bottom-3
-                      left-1/2
-                      -translate-x-1/2
-                      bg-black/50
-                      text-white
-                      text-sm
-                      px-3 py-1
-                      rounded-full
-                    "
-                  >
+                  <div className="flex lg:hidden items-center justify-center gap-6 mt-4">
+                    <button
+                      aria-label="Previous image"
+                      onClick={prevImage}
+                      className="
+                        flex items-center justify-center
+                        size-10
+                        rounded-full
+                        border border-white/70
+                        text-white
+                        bg-black/20
+                        backdrop-blur-sm
+                        active:scale-95
+                        transition-transform
+                      "
+                    >
+                      <IoIosArrowBack size={24} />
+                    </button>
+
+                    <span className="text-white text-sm">
+                      {selectedImageIndex + 1} / {data.gallery.length}
+                    </span>
+
+                    <button
+                      aria-label="Next image"
+                      onClick={nextImage}
+                      className="
+                        flex items-center justify-center
+                        size-10
+                        rounded-full
+                        border border-white/70
+                        text-white
+                        bg-black/20
+                        backdrop-blur-sm
+                        active:scale-95
+                        transition-transform
+                      "
+                    >
+                      <IoIosArrowForward size={24} />
+                    </button>
+                  </div>
+                )}
+
+                {/* Image counter */}
+                {data.gallery.length > 1 && (
+                  <div className="hidden lg:block absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 text-white text-sm px-3 py-1 rounded-full">
                     {selectedImageIndex + 1} / {data.gallery.length}
                   </div>
                 )}
               </motion.div>
 
+              {/* Right arrow */}
               {data.gallery.length > 1 && (
                 <button
                   aria-label="Next image"
                   onClick={nextImage}
                   className="
+                    hidden lg:flex
                     absolute
                     right-3 md:right-8
                     text-white

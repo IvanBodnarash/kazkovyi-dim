@@ -24,7 +24,7 @@ export default function ServicesClient({ services }) {
           >
             {t("categories.services")}
           </h1>
-          <div className="flex flex-wrap justify-between mt-8 gap-6">
+          <div className="flex flex-col md:flex-row md:flex-wrap justify-center mt-8 gap-6">
             {services.map((service, index) => (
               <ServiceCard
                 key={service._id}

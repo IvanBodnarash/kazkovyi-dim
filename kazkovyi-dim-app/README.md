@@ -35,7 +35,7 @@ The project also includes an admin panel for authorized users to manage content 
 
 ## Demo and Links
 
-- View Live: [Kazkovyi Dim](https://kazkovyi-dim.vercel.app/)
+- View Live: [Kazkovyi Dim](https://casadecuentoseventos.com)
 - GitHub Repository: [GitHub Repository](https://github.com/IvanBodnarash/kazkovyi-dim)
 
 ## Project Structure

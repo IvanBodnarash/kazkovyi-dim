@@ -1,7 +1,7 @@
 "use client";
 
 import { useContacts } from "@/app/context/ContactsContext";
-import { contactItems, contacts } from "@/app/data/contacts";
+import { contactItems } from "@/app/data/contacts";
 import { menuItems } from "@/app/data/menuItems";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";

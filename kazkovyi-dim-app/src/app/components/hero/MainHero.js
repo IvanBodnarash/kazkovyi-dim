@@ -3,8 +3,7 @@ import Image from "next/image";
 
 import bird from "../../../../public/stickers/bird.png";
 import vedmedyk from "../../../../public/stickers/bear.png";
-import { useContext, useEffect, useRef, useState } from "react";
-import ConnectWithUsContext from "@/app/context/ConnectWithUsContext";
+import { useEffect, useRef, useState } from "react";
 import ContactsPopupHero from "../ui/ContactsPopupHero";
 import useAos from "@/app/hooks/useAos";
 import { useTranslation } from "react-i18next";
@@ -42,7 +41,7 @@ export default function MainHero() {
 
   return (
     <div className="mx-auto max-w-8xl px-4 md:px-4 lg:px-8">
-      <div className="flex flex-col md:flex-row mt-18 lg:mt-0 justify-center items-center">
+      <div className="flex flex-col md:flex-row mt-20 lg:mt-18 xl:mt-4 justify-center items-center">
         <div className="flex">
           <Image
             data-aos="fade-right"

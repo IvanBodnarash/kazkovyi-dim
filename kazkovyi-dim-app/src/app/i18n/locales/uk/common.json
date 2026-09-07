@@ -29,6 +29,7 @@
   "contactUs": "Подзвонити нам",
 
   "serviceMessages": {
-    "descriptionUnavailable": "Опис не доступний"
+    "descriptionUnavailable": "Опис не доступний",
+    "gallery": "Галерея"
   }
 }

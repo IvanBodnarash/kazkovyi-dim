@@ -29,6 +29,7 @@
   "contactUs": "Llámanos",
 
   "serviceMessages": {
-    "descriptionUnavailable": "Descripción no disponible"
+    "descriptionUnavailable": "Descripción no disponible",
+    "gallery": "Galería"
   }
 }

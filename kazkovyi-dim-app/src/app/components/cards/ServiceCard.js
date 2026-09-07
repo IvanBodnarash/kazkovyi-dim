@@ -24,6 +24,7 @@ export default function ServiceCard({
           w-5/6 md:w-96
           h-full
           m-auto
+          rounded-xl
           p-3 md:p-4
           cursor-pointer
           hover:scale-102
@@ -54,9 +55,9 @@ export default function ServiceCard({
 
         <div className="ticket-divider" />
 
-        <div className="pt-4 min-h-26 flex flex-col items-center">
+        <div className="pt-4 flex flex-col items-center">
           <h1
-            className="
+            className={`
               text-xl md:text-2xl
               font-black
               text-center
@@ -64,7 +65,7 @@ export default function ServiceCard({
               group-hover:text-crema
               transition-colors
               duration-300
-            "
+            ${shortDescription ? "" : "pb-3"}`}
           >
             {title}
           </h1>
