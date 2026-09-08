@@ -6,9 +6,9 @@ import { useState } from "react";
 
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import ReviewBubble from "../ui/ReviewBubble";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import ReviewDetails from "../ui/ReviewDetails";
+import ImageWithSkeleton from "../ui/ImageWithSkeleton";
 
 export default function ReviewsClient({ reviews }) {
   const { t } = useTranslation();
@@ -75,7 +75,7 @@ export default function ReviewsClient({ reviews }) {
               </div>
             </div>
             <div>
-              <Image
+              <ImageWithSkeleton
                 data-aos="fade-up"
                 src="/stickers/bunny.png"
                 width={800}

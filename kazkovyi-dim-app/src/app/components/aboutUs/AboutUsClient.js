@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
-
 import processImage from "@/app/utils/imageProcessor";
 import { PortableText } from "next-sanity";
 import { useTranslation } from "react-i18next";
 import { portableTextNormalizer } from "@/app/utils/portableTextHelper";
 
 import { motion, useMotionValue, useSpring } from "motion/react";
+import ImageWithSkeleton from "../ui/ImageWithSkeleton";
 
 export default function AboutUsClient({ aboutUsData }) {
   const { t } = useTranslation();
@@ -85,7 +84,7 @@ export default function AboutUsClient({ aboutUsData }) {
                 }}
                 className="rounded-3xl"
               >
-                <Image
+                <ImageWithSkeleton
                   src={processedImg}
                   width={800}
                   height={400}

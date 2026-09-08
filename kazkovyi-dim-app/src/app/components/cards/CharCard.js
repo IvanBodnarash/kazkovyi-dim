@@ -1,5 +1,5 @@
 import processImage from "@/app/utils/imageProcessor";
-import Image from "next/image";
+import ImageWithSkeleton from "../ui/ImageWithSkeleton";
 
 export default function CharCard({
   title,
@@ -25,7 +25,7 @@ export default function CharCard({
         }}
       >
         <div className="bg-ochre p-3 rounded-xl relative">
-          <Image
+          <ImageWithSkeleton
             src={processedImg}
             width={800}
             height={400}

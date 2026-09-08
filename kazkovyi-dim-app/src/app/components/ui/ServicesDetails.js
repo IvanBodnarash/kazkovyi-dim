@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PortableText } from "next-sanity";
-import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -256,13 +255,14 @@ export default function ServicesDetails({ data, onClose }) {
                   justify-center
                 "
               >
-                <Image
+                <ImageWithSkeleton
                   src={processImage(data.gallery[selectedImageIndex])}
                   width={1600}
                   height={1200}
                   alt={data.gallery[selectedImageIndex].alt || `${data.title} ${selectedImageIndex + 1}`}
                   className="
-                    max-w-3xl
+                    max-w-xs
+                    md:max-w-3xl
                     max-h-[75vh]
                     md:max-h-[85vh]
                     w-auto

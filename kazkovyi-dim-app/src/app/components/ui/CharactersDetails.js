@@ -1,10 +1,10 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
-import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import ModalPortal from "./ModalPortal";
 import { motion } from "motion/react";
 import { portableTextNormalizer } from "@/app/utils/portableTextHelper";
+import ImageWithSkeleton from "./ImageWithSkeleton";
 
 export default function CharactersDetails({ data, onClose }) {
   const processedImg = processImage(data.img);
@@ -52,7 +52,7 @@ export default function CharactersDetails({ data, onClose }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-ochre p-2 rounded-xl relative">
-              <Image
+              <ImageWithSkeleton
                 src={processedImg}
                 width={800}
                 height={400}

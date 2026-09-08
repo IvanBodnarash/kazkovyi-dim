@@ -1,6 +1,6 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
-import Image from "next/image";
+import ImageWithSkeleton from "./ImageWithSkeleton";
 import { IoClose } from "react-icons/io5";
 import ModalPortal from "./ModalPortal";
 import { motion } from "motion/react";
@@ -34,7 +34,7 @@ export default function EventDetails({ data, onClose }) {
           >
             <div className="bg-ochre p-2 rounded-xl relative">
               <div className="absolute right-5 bottom-8 rounded-sm bg-cielo/80 p-1">{data.processedDate}</div>
-              <Image
+              <ImageWithSkeleton
                 className="rounded-xl h-60 min-w-70 lg:w-100 lg:h-100 object-cover"
                 src={processedImg}
                 width={200}

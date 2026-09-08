@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence } from "motion/react";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { useState } from "react";
+import ImageWithSkeleton from "./ImageWithSkeleton";
 
 export default function ContactItem({ title, href, imageUrl, newTab }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,7 +27,7 @@ export default function ContactItem({ title, href, imageUrl, newTab }) {
         </AnimatePresence>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: isLoaded ? 1 : 0 }} transition={{ duration: 0.3 }}>
-          <Image src={imageUrl} alt={title} width={30} height={30} onLoad={() => setIsLoaded(true)} />
+          <ImageWithSkeleton src={imageUrl} alt={title} width={30} height={30} onLoad={() => setIsLoaded(true)} />
         </motion.div>
       </div>
 
