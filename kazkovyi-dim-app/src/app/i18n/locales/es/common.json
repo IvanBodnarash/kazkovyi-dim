@@ -28,6 +28,12 @@
 
   "contactUs": "Llámanos",
 
+  "buttons": {
+    "allEventsButton": "Todos los eventos y novedades",
+    "viewAllButton": "Ver más",
+    "showLessButton": "Ver menos"
+  },
+
   "serviceMessages": {
     "descriptionUnavailable": "Descripción no disponible",
     "gallery": "Galería"

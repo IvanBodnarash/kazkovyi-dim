@@ -1,6 +1,6 @@
 import { PortableText } from "next-sanity";
 import processImage from "@/app/utils/imageProcessor";
-import Image from "next/image";
+import ImageWithSkeleton from "./ImageWithSkeleton";
 import { IoClose } from "react-icons/io5";
 import ModalPortal from "./ModalPortal";
 import { motion } from "motion/react";
@@ -16,9 +16,10 @@ export default function EventDetails({ data, onClose }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm overflow-y-auto md:overflow-y-hidden min-h-dvh"
+        className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm overflow-y-auto"
         onClick={onClose}
       >
+        {/* Mobile Close */}
         <button
           aria-label="Close"
           onClick={onClose}
@@ -27,15 +28,30 @@ export default function EventDetails({ data, onClose }) {
           <IoClose size={28} />
         </button>
 
-        <div className="flex min-h-dvh justify-center items-center p-6">
+        <div className="flex min-h-dvh justify-center p-4 md:p-6">
           <div
-            className="bg-crema border border-ochre/70 flex flex-col justify-center items-start md:flex-row gap-2 my-8 sm:my-0 md:gap-6 rounded-2xl m-5 md:m-10 lg:m-20 xl:m-30 p-6 transition-all"
+            className="
+                bg-crema
+                border border-ochre/70
+                flex flex-col md:flex-row
+                justify-center items-stretch md:items-start
+                gap-2 md:gap-6
+                rounded-2xl
+                p-4 md:p-6
+                my-auto
+                w-full
+                max-w-7xl
+                max-h-[calc(100dvh-6rem)]
+                md:max-h-[calc(100dvh-3rem)]
+                overflow-y-auto
+                transition-all
+              "
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-ochre p-2 rounded-xl relative">
+            <div className="bg-ochre p-2 rounded-xl relative w-full md:w-auto">
               <div className="absolute right-5 bottom-8 rounded-sm bg-cielo/80 p-1">{data.processedDate}</div>
-              <Image
-                className="rounded-xl h-60 min-w-70 lg:w-100 lg:h-100 object-cover"
+              <ImageWithSkeleton
+                className="rounded-xl h-60 w-full lg:w-100 lg:h-100 object-cover"
                 src={processedImg}
                 width={200}
                 height={200}
@@ -45,12 +61,14 @@ export default function EventDetails({ data, onClose }) {
 
             <div className="w-full md:w-3/4 overflow-y-auto md:overflow-hidden">
               <div className="flex flex-row justify-between items-center text-ochre-500 font-bold">
-                <h1 className="mb-2 text-xl lg:text-2xl">{data.title}</h1>
+                <h1 className="mb-2 text-lg lg:text-2xl">{data.title}</h1>
+
+                {/* Desktop Close */}
                 <button aria-label="Close" onClick={onClose} className="cursor-pointer hidden md:block">
                   <IoClose size={24} />
                 </button>
               </div>
-              <div className="text-ochre-500 text-sm md:text-md lg:text-lg">
+              <div className="text-ochre-500 text-sm md:text-md lg:text-[16px]">
                 <PortableText
                   value={data.description}
                   components={{

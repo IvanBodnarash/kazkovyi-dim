@@ -1,9 +1,10 @@
 "use client";
 
 import { AnimatePresence } from "motion/react";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { useState } from "react";
+import ImageWithSkeleton from "./ImageWithSkeleton";
+import Image from "next/image";
 
 export default function ContactItem({ title, href, imageUrl, newTab }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,7 +22,7 @@ export default function ContactItem({ title, href, imageUrl, newTab }) {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-0 rounded-full bg-gray-200 animate-pulse"
+              className="absolute inset-0 rounded-full bg-gray-300 animate-pulse"
             />
           )}
         </AnimatePresence>
@@ -32,7 +33,7 @@ export default function ContactItem({ title, href, imageUrl, newTab }) {
       </div>
 
       <div className="relative">
-        {!isLoaded ? <span className="block w-24 h-4 rounded bg-gray-200 animate-pulse" /> : <span>{title}</span>}
+        {!isLoaded ? <span className="block w-24 h-4 rounded bg-gray-300 animate-pulse" /> : <span>{title}</span>}
       </div>
     </a>
   );

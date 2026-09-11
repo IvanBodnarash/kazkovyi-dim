@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import Loader from "./Loader";
 
 export default function ImageWithSkeleton({ src, alt, className = "", width, height }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,8 +16,12 @@ export default function ImageWithSkeleton({ src, alt, className = "", width, hei
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="absolute inset-0 z-10 bg-gray-200 animate-pulse"
-          />
+            className="absolute inset-0 z-10 flex items-center justify-center bg-gray-200/80 animate-pulse"
+          >
+            <div className="w-10 h-10">
+              <Loader />
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
 

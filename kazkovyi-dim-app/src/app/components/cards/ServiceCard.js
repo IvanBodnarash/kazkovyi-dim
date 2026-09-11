@@ -1,5 +1,5 @@
 import processImage from "@/app/utils/imageProcessor";
-import Image from "next/image";
+import ImageWithSkeleton from "../ui/ImageWithSkeleton";
 
 export default function ServiceCard({
   title,
@@ -21,7 +21,7 @@ export default function ServiceCard({
           group
           bg-crema
           hover:bg-ochre-500
-          w-5/6 md:w-96
+          w-72 lg:w-96
           h-full
           m-auto
           rounded-xl
@@ -44,7 +44,7 @@ export default function ServiceCard({
         }}
       >
         <div className="bg-ochre p-2 rounded-xl">
-          <Image
+          <ImageWithSkeleton
             className="rounded-xl h-42 w-full object-cover"
             src={processedImg}
             width={800}

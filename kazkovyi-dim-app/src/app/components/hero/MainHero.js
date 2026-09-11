@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 import bird from "../../../../public/stickers/bird.png";
 import vedmedyk from "../../../../public/stickers/bear.png";
@@ -7,6 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import ContactsPopupHero from "../ui/ContactsPopupHero";
 import useAos from "@/app/hooks/useAos";
 import { useTranslation } from "react-i18next";
+import ImageWithSkeleton from "../ui/ImageWithSkeleton";
+import Image from "next/image";
 
 export default function MainHero() {
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
