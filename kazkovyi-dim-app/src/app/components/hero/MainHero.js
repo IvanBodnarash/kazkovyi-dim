@@ -7,6 +7,7 @@ import ContactsPopupHero from "../ui/ContactsPopupHero";
 import useAos from "@/app/hooks/useAos";
 import { useTranslation } from "react-i18next";
 import ImageWithSkeleton from "../ui/ImageWithSkeleton";
+import Image from "next/image";
 
 export default function MainHero() {
   const [isPopupHeroOpened, setIsPopupHeroOpened] = useState(false);
@@ -43,7 +44,7 @@ export default function MainHero() {
     <div className="mx-auto max-w-8xl px-4 md:px-4 lg:px-8">
       <div className="flex flex-col md:flex-row mt-20 lg:mt-18 xl:mt-4 justify-center items-center">
         <div className="flex">
-          <ImageWithSkeleton
+          <Image
             data-aos="fade-right"
             className="size-14 md:size-16 lg:size-30 xl:size-34 rotate-8"
             src={bird}
@@ -98,7 +99,7 @@ export default function MainHero() {
         </div>
 
         <div className="flex justify-center items-center">
-          <ImageWithSkeleton
+          <Image
             data-aos="fade-left"
             data-aos-delay={600}
             width={800}

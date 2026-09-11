@@ -28,6 +28,12 @@
 
   "contactUs": "Подзвонити нам",
 
+  "buttons": {
+    "allEventsButton": "Всі події та новинки",
+    "viewAllButton": "Переглянути все",
+    "showLessButton": "Показати менше"
+  },
+
   "serviceMessages": {
     "descriptionUnavailable": "Опис не доступний",
     "gallery": "Галерея"

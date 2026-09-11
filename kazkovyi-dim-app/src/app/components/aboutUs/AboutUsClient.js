@@ -48,7 +48,7 @@ export default function AboutUsClient({ aboutUsData }) {
 
   return (
     <div className="mx-auto max-w-7xl px-8 pb-8 lg:pb-0 md:px-6 lg:px-8">
-      <div className="mt-0 lg:mt-14 items-center font-calibri">
+      <div className="mt-14 items-center font-calibri">
         <h1
           data-aos="fade-up"
           className="text-2xl md:text-3xl text-center lg:text-start lg:text-4xl font-bold text-ochre-500"

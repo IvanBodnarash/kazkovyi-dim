@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IoClose } from "react-icons/io5";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import { menuItems } from "@/app/data/menuItems";
 
 export default function MobileMenu({ mobileMenuOpened, closeMobileMenu }) {
   const { t } = useTranslation();
@@ -34,65 +35,17 @@ export default function MobileMenu({ mobileMenuOpened, closeMobileMenu }) {
                 <IoClose style={{ fontSize: "22px" }} />
               </button>
               <ul className="flex flex-col items-start mt-12 gap-6 text-lg">
-                <li>
-                  <Link
-                    onClick={closeMobileMenu}
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="/"
-                  >
-                    {t("header.home")}
-                  </Link>
-                </li>
-
-                <li>
-                  <a
-                    onClick={closeMobileMenu}
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#events"
-                  >
-                    {t("header.events")}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    onClick={closeMobileMenu}
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#aboutUs"
-                  >
-                    {t("header.about")}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    onClick={closeMobileMenu}
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#chars"
-                  >
-                    {t("header.characters")}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    onClick={closeMobileMenu}
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#reviews"
-                  >
-                    {t("header.reviews")}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    onClick={closeMobileMenu}
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#services"
-                  >
-                    {t("header.services")}
-                  </a>
-                </li>
+                {menuItems.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className="text-gray-500 transition hover:text-gray-500/75"
+                    >
+                      {t(item.label)}
+                    </Link>
+                  </li>
+                ))}
 
                 <li>
                   <a

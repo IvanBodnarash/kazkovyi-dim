@@ -5,22 +5,19 @@ export default function useScreenSize() {
 
   useEffect(() => {
     const handleResize = () => {
-      const resolution = window.innerWidth;
-      const isMobile = resolution >= 320 && resolution <= 480;
-      const isTablet = resolution >= 768 && resolution <= 1024;
+      const width = window.innerWidth;
 
-      if (isMobile) {
+      if (width < 768) {
         setDevice("mobile");
-      }
-      if (isTablet) {
-        setDevice("table");
-      }
-      if (!isMobile && !isTablet) {
+      } else if (width < 1024) {
+        setDevice("tablet");
+      } else {
         setDevice("desktop");
       }
     };
 
     handleResize();
+
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);

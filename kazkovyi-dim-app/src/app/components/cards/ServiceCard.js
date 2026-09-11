@@ -21,7 +21,7 @@ export default function ServiceCard({
           group
           bg-crema
           hover:bg-ochre-500
-          w-5/6 md:w-96
+          w-72 lg:w-96
           h-full
           m-auto
           rounded-xl
