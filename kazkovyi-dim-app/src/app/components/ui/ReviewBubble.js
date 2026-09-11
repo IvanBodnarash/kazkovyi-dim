@@ -4,7 +4,7 @@ import { CgUserlane } from "react-icons/cg";
 export default function ReviewBubble({ data, ...props }) {
   return (
     <div {...props} className="flex items-end gap-4 cursor-pointer">
-      <CgUserlane className="text-white text-5xl bg-slate-600 rounded-full h-fit p-2" />
+      <CgUserlane className="text-white text-3xl bg-slate-600 rounded-full h-fit p-2 shrink-0" />
       <div
         className="bg-linear-to-tr from-white to-sky-100 p-3 xl:p-4 max-w-96 rounded-tl-3xl rounded-r-3xl leading-5 hover:scale-[1.01]
                     transition-transform
