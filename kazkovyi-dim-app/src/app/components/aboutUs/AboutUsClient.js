@@ -14,10 +14,10 @@ export default function AboutUsClient({ aboutUsData }) {
   const processedImg = processImage(aboutUsData[0].image);
   const pathname = usePathname();
   const description = pathname.startsWith("/uk")
-    ? aboutUsData[0].decriptionUK
+    ? aboutUsData[0].descriptionUK
     : pathname.startsWith("/en")
-      ? aboutUsData[0].decriptionEN
-      : aboutUsData[0].decriptionES;
+      ? aboutUsData[0].descriptionEN
+      : aboutUsData[0].descriptionES;
 
   const rotateXValue = useMotionValue(0);
   const rotateYValue = useMotionValue(0);
@@ -65,9 +65,9 @@ export default function AboutUsClient({ aboutUsData }) {
         <div
           data-aos="fade-up"
           data-aos-delay={100}
-          className="flex flex-col md:flex-row justify-center items-center md:items-start mt-8 gap-10"
+          className="flex flex-col lg:flex-row justify-center items-center md:items-start mt-8 gap-10"
         >
-          <div className="w-full md:max-w-100" style={{ perspective: "1000px" }}>
+          <div className="w-full lg:max-w-100" style={{ perspective: "1000px" }}>
             <motion.div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -96,7 +96,7 @@ export default function AboutUsClient({ aboutUsData }) {
                   width={800}
                   height={400}
                   alt="aboutUs"
-                  className="h-60 md:h-160 w-full rounded-xl shadow-xl/20 object-cover"
+                  className="h-60 lg:h-160 w-full rounded-xl shadow-xl/20 object-cover"
                 />
               </motion.div>
             </motion.div>
