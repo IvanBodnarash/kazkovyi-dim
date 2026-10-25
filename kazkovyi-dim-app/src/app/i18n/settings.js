@@ -5,32 +5,35 @@ import esTranslations from "./locales/es/common.json";
 import enTranslations from "./locales/en/common.json";
 import ukTranslations from "./locales/uk/common.json";
 
-const i18n = createInstance();
-
-i18n.use(initReactI18next).init({
-  resources: {
-    es: {
-      translation: esTranslations,
-    },
-    en: {
-      translation: enTranslations,
-    },
-    uk: {
-      translation: ukTranslations,
-    },
+const resources = {
+  es: {
+    translation: esTranslations,
   },
-
-  lng: "es",
-  fallbackLng: "es",
-
-  interpolation: {
-    escapeValue: false,
+  en: {
+    translation: enTranslations,
   },
-
-  react: {
-    bindI18n: "languageChanged",
-    useSuspense: false,
+  uk: {
+    translation: ukTranslations,
   },
-});
+};
 
-export default i18n;
+export function createI18n(language = "es") {
+  const i18n = createInstance();
+
+  i18n.use(initReactI18next).init({
+    resources,
+    lng: language,
+    fallbackLng: "es",
+
+    interpolation: {
+      escapeValue: false,
+    },
+
+    react: {
+      bindI18n: "languageChanged",
+      useSuspense: false,
+    },
+  });
+
+  return i18n;
+}

@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { IoChevronDown } from "react-icons/io5";
 
 export default function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const pathname = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -14,26 +15,28 @@ export default function LanguageSwitcher() {
     {
       code: "es",
       label: "ES",
+      href: "/",
     },
     {
       code: "uk",
       label: "UA",
+      href: "/uk",
     },
     {
       code: "en",
       label: "EN",
+      href: "/en",
     },
   ];
 
-  const currentLanguage = languages.find((language) => language.code === i18n.resolvedLanguage) || languages[0];
+  const currentLanguage =
+    languages.find((language) => {
+      if (language.code === "es") {
+        return pathname === "/";
+      }
 
-  const handleChangeLanguage = async (language) => {
-    await i18n.changeLanguage(language);
-
-    window.localStorage.setItem("language", language);
-
-    setIsOpen(false);
-  };
+      return pathname.startsWith(`/${language.code}`);
+    }) || languages[0];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -64,16 +67,16 @@ export default function LanguageSwitcher() {
       {isOpen && (
         <div className="absolute left-0 top-full mt-2 min-w-20 overflow-hidden rounded-md bg-white shadow-lg border border-gray-200 z-50">
           {languages.map((language) => (
-            <button
+            <Link
               key={language.code}
-              type="button"
-              onClick={() => handleChangeLanguage(language.code)}
+              href={language.href}
+              onClick={() => setIsOpen(false)}
               className={`block w-full px-4 py-2 text-left text-sm cursor-pointer text-gray-600 transition-colors hover:bg-gray-100 ${
                 currentLanguage.code === language.code ? "font-semibold bg-gray-50" : ""
               }`}
             >
               {language.label}
-            </button>
+            </Link>
           ))}
         </div>
       )}

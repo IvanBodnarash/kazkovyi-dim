@@ -89,7 +89,7 @@ export default function AboutUsClient({ aboutUsData }) {
                   width={800}
                   height={400}
                   alt="aboutUs"
-                  className="h-60 md:h-110 w-full rounded-3xl shadow-xl/20 object-cover"
+                  className="h-60 md:h-160 w-full rounded-xl shadow-xl/20 object-cover"
                 />
               </motion.div>
             </motion.div>

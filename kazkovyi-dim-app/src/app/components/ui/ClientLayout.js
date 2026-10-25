@@ -7,11 +7,15 @@ import LoadingComponent from "./LoadingComponent";
 import ConnectWithUsContext from "@/app/context/ConnectWithUsContext";
 import I18nProvider from "@/app/i18n/I18nProvider";
 import { ContactsProvider } from "@/app/context/ContactsContext";
+import { usePathname } from "next/navigation";
 
 export default function ClientLayout({ children, contacts }) {
   const [isPopupOpened, setIsPopupOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const pathname = usePathname();
+
+  const language = pathname.startsWith("/uk") ? "uk" : pathname.startsWith("/en") ? "en" : "es";
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
@@ -29,7 +33,7 @@ export default function ClientLayout({ children, contacts }) {
   }, []);
 
   return (
-    <I18nProvider>
+    <I18nProvider language={language}>
       <ContactsProvider contacts={contacts}>
         <ConnectWithUsContext value={[isPopupOpened, setIsPopupOpened]}>
           <Header />
