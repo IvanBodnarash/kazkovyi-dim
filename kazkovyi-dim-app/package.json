@@ -29,9 +29,18 @@
     "eslint-config-next": "^15.5.23",
     "tailwindcss": "^4.1.11"
   },
-  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "description": "Multilingual website for Casa de Cuentos, a children's entertainment and event company serving the Costa Brava, Girona and Barcelona.",
   "main": "index.js",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nextjs",
+    "react",
+    "sanity",
+    "i18next",
+    "casa-de-cuentos",
+    "animacion-infantil",
+    "costa-brava",
+    "eventos-infantiles"
+  ],
+  "author": "Ivan Bodnarash",
   "license": "ISC"
 }
