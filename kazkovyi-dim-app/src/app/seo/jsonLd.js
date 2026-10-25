@@ -1,11 +1,34 @@
-export default function JsonLd() {
+const BASE_URL = "https://casadecuentoseventos.com";
+
+const descriptions = {
+  es: "Animación infantil y turística para cumpleaños, fiestas, hoteles, restaurantes, eventos y celebraciones en la Costa Brava.",
+
+  en: "Children's entertainment for birthdays, parties, hotels, restaurants, events and celebrations on the Costa Brava.",
+
+  uk: "Дитяча анімація для днів народження, свят, готелів, ресторанів та інших подій на Коста-Брава.",
+};
+
+const urls = {
+  es: `${BASE_URL}/`,
+  en: `${BASE_URL}/en`,
+  uk: `${BASE_URL}/uk`,
+};
+
+export default function JsonLd({ language = "es" }) {
   const jsonLd = {
     "@context": "https://schema.org",
+
     "@type": "LocalBusiness",
+
+    "@id": `${BASE_URL}/#business`,
+
     name: "Casa de Cuentos",
-    description: "Animación infantil y turística para fiestas, hoteles, eventos y celebraciones en la Costa Brava.",
-    url: "https://casadecuentoseventos.com",
-    image: "https://casadecuentoseventos.com/og-image.jpg",
+
+    description: descriptions[language] || descriptions.es,
+
+    url: urls[language] || urls.es,
+
+    image: `${BASE_URL}/og-image.jpg`,
 
     address: {
       "@type": "PostalAddress",
@@ -14,10 +37,27 @@ export default function JsonLd() {
       addressCountry: "ES",
     },
 
-    areaServed: {
-      "@type": "Place",
-      name: "Costa Brava, Girona, España",
-    },
+    areaServed: [
+      {
+        "@type": "Place",
+        name: "Costa Brava",
+      },
+
+      {
+        "@type": "Place",
+        name: "Girona",
+      },
+
+      {
+        "@type": "Place",
+        name: "Barcelona",
+      },
+
+      {
+        "@type": "Place",
+        name: "Catalonia",
+      },
+    ],
 
     sameAs: ["https://www.instagram.com/casadecuentos.es/"],
   };

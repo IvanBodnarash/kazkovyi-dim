@@ -6,11 +6,17 @@ import EventDetails from "../ui/EventDetails";
 import { useTranslation } from "react-i18next";
 import useDisableBodyScroll from "@/app/hooks/useDisableBodyScroll";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function EventsClient({ events }) {
   const { t } = useTranslation();
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [selectedData, setSelectedData] = useState();
+  const pathname = usePathname();
+
+  const language = pathname.startsWith("/uk") ? "uk" : pathname.startsWith("/en") ? "en" : "es";
+
+  const eventsHref = language === "es" ? "/events" : `/${language}/events`;
 
   useDisableBodyScroll(showDetailsModal);
 
@@ -41,13 +47,12 @@ export default function EventsClient({ events }) {
             ))}
           </div>
           <div className="flex justify-center mt-4 md:mt-6">
-            <button
-              href="/events"
+            <Link
+              href={eventsHref}
               className="font-calibri text-lg md:text-xl cursor-pointer rounded-lg bg-crema text-ochre-500 hover:bg-ochre hover:text-white transition-all active:bg-ochre-500 px-8 md:px-12 py-1.5 md:py-2.5 font-medium shadow-sm"
-              type="button"
             >
-              <Link href="/events">{t("buttons.allEventsButton")}</Link>
-            </button>
+              {t("buttons.allEventsButton")}
+            </Link>
           </div>
         </div>
       </div>

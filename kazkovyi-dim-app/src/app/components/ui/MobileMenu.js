@@ -4,9 +4,12 @@ import { IoClose } from "react-icons/io5";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { menuItems } from "@/app/data/menuItems";
+import { usePathname } from "next/navigation";
 
 export default function MobileMenu({ mobileMenuOpened, closeMobileMenu }) {
   const { t } = useTranslation();
+  const pathname = usePathname();
+  const homePath = pathname.startsWith("/uk") ? "/uk" : pathname.startsWith("/en") ? "/en" : "";
 
   return (
     <AnimatePresence>
@@ -38,7 +41,7 @@ export default function MobileMenu({ mobileMenuOpened, closeMobileMenu }) {
                 {menuItems.map((item) => (
                   <li key={item.label}>
                     <Link
-                      href={item.href}
+                      href={`${homePath}${item.href}`}
                       onClick={closeMobileMenu}
                       className="text-gray-500 transition hover:text-gray-500/75"
                     >
