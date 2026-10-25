@@ -41,6 +41,13 @@ export const metadataData = {
   },
 
   alternates: {
-    canonical: "https://casadecuentoseventos.com",
+    canonical: "https://casadecuentoseventos.com/",
+
+    languages: {
+      es: "https://casadecuentoseventos.com/",
+      en: "https://casadecuentoseventos.com/en",
+      uk: "https://casadecuentoseventos.com/uk",
+      "x-default": "https://casadecuentoseventos.com/",
+    },
   },
 };

@@ -4,7 +4,9 @@ export async function fetchAbouUs() {
   const ABOUTUS_QUERY = `*[_type == "aboutUs"] | order(publishedAt desc){
         _id,
         image,
-        description,
+        descriptionES,
+        descriptionEN,
+        descriptionUK,
         publishedAt,
     }`;
 

@@ -1,34 +1,20 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
 
-import i18n from "./settings";
+import { createI18n } from "./settings";
 
-export default function I18nProvider({ children }) {
+export default function I18nProvider({ children, language = "es" }) {
+  const [i18n] = useState(() => createI18n(language));
+
   useEffect(() => {
-    const savedLanguage = window.localStorage.getItem("language");
-
-    if (savedLanguage && ["es", "en", "uk"].includes(savedLanguage)) {
-      i18n.changeLanguage(savedLanguage);
+    if (i18n.resolvedLanguage !== language) {
+      i18n.changeLanguage(language);
     }
-  }, []);
 
-  useEffect(() => {
-    const handleLanguageChanged = (language) => {
-      console.log("EVENT languageChanged:", language);
-      
-      document.documentElement.lang = language;
-    };
-
-    document.documentElement.lang = i18n.resolvedLanguage || "es";
-
-    i18n.on("languageChanged", handleLanguageChanged);
-
-    return () => {
-      i18n.off("languageChanged", handleLanguageChanged);
-    };
-  }, []);
+    document.documentElement.lang = language;
+  }, [language, i18n]);
 
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 }

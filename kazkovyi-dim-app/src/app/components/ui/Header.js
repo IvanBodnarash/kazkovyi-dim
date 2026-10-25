@@ -14,14 +14,16 @@ import MobileMenu from "./MobileMenu";
 import NavItem from "./NavItem";
 import useAos from "@/app/hooks/useAos";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const { t } = useTranslation();
-  const router = useRouter();
+  const pathname = usePathname();
 
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   const [isPopupOpened, setIsPopupOpened] = useContext(ConnectWithUsContext);
+
+  const homeHref = pathname.startsWith("/uk") ? "/uk" : pathname.startsWith("/en") ? "/en" : "/";
 
   useAos(true);
 
@@ -38,8 +40,9 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12" data-aos="fade-zoom-in">
-            <Link className="block text-teal-600" href="/">
+            <Link className="block text-teal-600" href={homeHref}>
               <span className="sr-only">{t("header.home")}</span>
+
               <Image src="/logo.png" width={100} height={100} alt="Logo" priority />
             </Link>
           </div>
@@ -48,12 +51,7 @@ export default function Header() {
             <nav aria-label="Global" className="hidden lg:block">
               <ul className="flex items-center gap-6 text-md">
                 {menuItems.map((item, index) => (
-                  <NavItem
-                    key={item.label}
-                    href={item.href}
-                    data-aos="fade-zoom-in"
-                    data-aos-delay={index * 100}
-                  >
+                  <NavItem key={item.label} href={item.href} data-aos="fade-zoom-in" data-aos-delay={index * 100}>
                     {t(item.label)}
                   </NavItem>
                 ))}

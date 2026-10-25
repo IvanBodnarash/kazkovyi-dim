@@ -10,7 +10,17 @@ export const aboutUsType = defineType({
             type: 'image',
         }),
         defineField({
-            name: 'description',
+            name: 'descriptionES',
+            type: 'array',
+            of: [{ type: 'block' }],
+        }),
+        defineField({
+            name: 'descriptionEN',
+            type: 'array',
+            of: [{ type: 'block' }],
+        }),
+        defineField({
+            name: 'descriptionUK',
             type: 'array',
             of: [{ type: 'block' }],
         }),
