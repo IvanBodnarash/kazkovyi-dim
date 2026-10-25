@@ -30,10 +30,13 @@ export default function JsonLd({ language = "es" }) {
 
     image: `${BASE_URL}/og-image.jpg`,
 
+    telephone: "+34602705592",
+
     address: {
       "@type": "PostalAddress",
       addressLocality: "Lloret de Mar",
       addressRegion: "Girona",
+      postalCode: "17310",
       addressCountry: "ES",
     },
 
