@@ -1,8 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://casadecuentoseventos.com
-# Sitemaps
-Sitemap: https://casadecuentoseventos.com/sitemap.xml

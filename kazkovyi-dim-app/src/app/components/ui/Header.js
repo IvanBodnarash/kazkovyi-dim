@@ -51,7 +51,7 @@ export default function Header() {
             <nav aria-label="Global" className="hidden lg:block">
               <ul className="flex items-center gap-6 text-md">
                 {menuItems.map((item, index) => (
-                  <NavItem key={item.label} href={item.href} data-aos="fade-zoom-in" data-aos-delay={index * 100}>
+                  <NavItem key={item.label} href={`${homeHref}${item.href}`} data-aos="fade-zoom-in" data-aos-delay={index * 100}>
                     {t(item.label)}
                   </NavItem>
                 ))}

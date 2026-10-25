@@ -11,32 +11,47 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  const currentLanguage = pathname.startsWith("/uk") ? "uk" : pathname.startsWith("/en") ? "en" : "es";
+
+  const getPathForLanguage = (language) => {
+    let pathWithoutLanguage = pathname;
+
+    if (pathname.startsWith("/uk")) {
+      pathWithoutLanguage = pathname.slice(3) || "/";
+    }
+
+    if (pathname.startsWith("/en")) {
+      pathWithoutLanguage = pathname.slice(3) || "/";
+    }
+
+    if (language === "es") {
+      return pathWithoutLanguage;
+    }
+
+    if (pathWithoutLanguage === "/") {
+      return `/${language}`;
+    }
+
+    return `/${language}${pathWithoutLanguage}`;
+  };
+
   const languages = [
     {
       code: "es",
       label: "ES",
-      href: "/",
+      href: getPathForLanguage("es"),
     },
     {
       code: "uk",
       label: "UA",
-      href: "/uk",
+      href: getPathForLanguage("uk"),
     },
     {
       code: "en",
       label: "EN",
-      href: "/en",
+      href: getPathForLanguage("en"),
     },
   ];
-
-  const currentLanguage =
-    languages.find((language) => {
-      if (language.code === "es") {
-        return pathname === "/";
-      }
-
-      return pathname.startsWith(`/${language.code}`);
-    }) || languages[0];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -59,7 +74,7 @@ export default function LanguageSwitcher() {
         onClick={() => setIsOpen((prevState) => !prevState)}
         className="flex items-center gap-1 rounded-md px-3 py-1 md:py-2.5 text-md font-medium text-gray-500 border lg:border-0 border-gray-500 hover:bg-gray-100 transition-all cursor-pointer"
       >
-        {currentLanguage.label}
+        {languages.find((lang) => lang.code === currentLanguage)?.label}
 
         <IoChevronDown size={16} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
