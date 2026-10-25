@@ -7,10 +7,17 @@ import { portableTextNormalizer } from "@/app/utils/portableTextHelper";
 
 import { motion, useMotionValue, useSpring } from "motion/react";
 import ImageWithSkeleton from "../ui/ImageWithSkeleton";
+import { usePathname } from "next/navigation";
 
 export default function AboutUsClient({ aboutUsData }) {
   const { t } = useTranslation();
   const processedImg = processImage(aboutUsData[0].image);
+  const pathname = usePathname();
+  const description = pathname.startsWith("/uk")
+    ? aboutUsData[0].decriptionUK
+    : pathname.startsWith("/en")
+      ? aboutUsData[0].decriptionEN
+      : aboutUsData[0].decriptionES;
 
   const rotateXValue = useMotionValue(0);
   const rotateYValue = useMotionValue(0);
@@ -100,7 +107,7 @@ export default function AboutUsClient({ aboutUsData }) {
             className="text-ochre-500 text-md md:text-lg lg:text-xl text-shadow-2xs"
           >
             <PortableText
-              value={aboutUsData[0].description}
+              value={description}
               components={{
                 block: portableTextNormalizer,
                 marks: {
